@@ -1,0 +1,13 @@
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/obj/Debug/net4.5/win-x64/ExpWrapSerializer.csproj.AssemblyReference.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/obj/Debug/net4.5/win-x64/ExpWrapSerializer.csproj.SuggestedBindingRedirects.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/obj/Debug/net4.5/win-x64/ExpWrapSerializer.GeneratedMSBuildEditorConfig.editorconfig
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/obj/Debug/net4.5/win-x64/ExpWrapSerializer.AssemblyInfoInputs.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/obj/Debug/net4.5/win-x64/ExpWrapSerializer.AssemblyInfo.cs
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/obj/Debug/net4.5/win-x64/ExpWrapSerializer.csproj.CoreCompileInputs.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/bin/Debug/net4.5/win-x64/ExpWrapSerializer.exe.config
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/bin/Debug/net4.5/win-x64/ExpWrapSerializer.exe
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/bin/Debug/net4.5/win-x64/ExpWrapSerializer.pdb
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/bin/Debug/net4.5/win-x64/DotNetNuke.DLL
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/obj/Debug/net4.5/win-x64/ExpWrapSerializer.csproj.CopyComplete
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/obj/Debug/net4.5/win-x64/ExpWrapSerializer.exe
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/obj/Debug/net4.5/win-x64/ExpWrapSerializer.pdb

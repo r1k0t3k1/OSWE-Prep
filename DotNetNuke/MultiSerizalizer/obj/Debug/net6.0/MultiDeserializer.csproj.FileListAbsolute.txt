@@ -1,0 +1,15 @@
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/bin/Debug/net6.0/MultiDeserializer
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/bin/Debug/net6.0/MultiDeserializer.deps.json
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/bin/Debug/net6.0/MultiDeserializer.runtimeconfig.json
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/bin/Debug/net6.0/MultiDeserializer.dll
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/bin/Debug/net6.0/MultiDeserializer.pdb
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/obj/Debug/net6.0/MultiDeserializer.csproj.AssemblyReference.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/obj/Debug/net6.0/MultiDeserializer.GeneratedMSBuildEditorConfig.editorconfig
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/obj/Debug/net6.0/MultiDeserializer.AssemblyInfoInputs.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/obj/Debug/net6.0/MultiDeserializer.AssemblyInfo.cs
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/obj/Debug/net6.0/MultiDeserializer.csproj.CoreCompileInputs.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/obj/Debug/net6.0/MultiDeserializer.dll
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/obj/Debug/net6.0/refint/MultiDeserializer.dll
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/obj/Debug/net6.0/MultiDeserializer.pdb
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/obj/Debug/net6.0/MultiDeserializer.genruntimeconfig.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/obj/Debug/net6.0/ref/MultiDeserializer.dll

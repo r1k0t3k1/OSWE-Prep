@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "rFuwUCYdDxbFyMdlRR7yybrtp5V4WlyMsr2JzCnCpk20RPrzImXE7dG5KOAnbEr/6kO1f3lPJYxYzDNrLgttxA==",
+  "success": true,
+  "projectFilePath": "/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/ExpWrapSerializer.csproj",
+  "expectedPackageFiles": [
+    "/home/rikoteki/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "/home/rikoteki/.nuget/packages/microsoft.netframework.referenceassemblies.net45/1.0.2/microsoft.netframework.referenceassemblies.net45.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

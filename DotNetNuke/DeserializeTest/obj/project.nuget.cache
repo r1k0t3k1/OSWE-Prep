@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "EIr8+VGC2AzWuhNPIbgaV5ld3lg9j8fsO6ettNs9PRRRATOyKdmdpQF960xxxdUPhmr5VN6T+MBUFFphawDh/g==",
+  "success": true,
+  "projectFilePath": "/home/rikoteki/Desktop/OSWE/DotNetNuke/DeserializeTest/DeserializeTest.csproj",
+  "expectedPackageFiles": [
+    "/home/rikoteki/.nuget/packages/microsoft.netcore.app.ref/6.0.8/microsoft.netcore.app.ref.6.0.8.nupkg.sha512",
+    "/home/rikoteki/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.8/microsoft.aspnetcore.app.ref.6.0.8.nupkg.sha512",
+    "/home/rikoteki/.nuget/packages/microsoft.netcore.app.host.linux-x64/6.0.8/microsoft.netcore.app.host.linux-x64.6.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}

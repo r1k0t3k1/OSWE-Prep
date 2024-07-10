@@ -1,0 +1,15 @@
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/bin/Debug/net6.0/MultiSerializer
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/bin/Debug/net6.0/MultiSerializer.deps.json
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/bin/Debug/net6.0/MultiSerializer.runtimeconfig.json
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/bin/Debug/net6.0/MultiSerializer.dll
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/bin/Debug/net6.0/MultiSerializer.pdb
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/obj/Debug/net6.0/MultiSerializer.csproj.AssemblyReference.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/obj/Debug/net6.0/MultiSerializer.GeneratedMSBuildEditorConfig.editorconfig
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/obj/Debug/net6.0/MultiSerializer.AssemblyInfoInputs.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/obj/Debug/net6.0/MultiSerializer.AssemblyInfo.cs
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/obj/Debug/net6.0/MultiSerializer.csproj.CoreCompileInputs.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/obj/Debug/net6.0/MultiSerializer.dll
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/obj/Debug/net6.0/refint/MultiSerializer.dll
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/obj/Debug/net6.0/MultiSerializer.pdb
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/obj/Debug/net6.0/MultiSerializer.genruntimeconfig.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiSerizalizer/obj/Debug/net6.0/ref/MultiSerializer.dll

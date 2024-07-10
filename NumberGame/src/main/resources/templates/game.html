@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Number Guessing Game!</title>
+	</head>
+	<body>
+		<h1>Number Guessing Game</h1>
+		<th:block th:if="${message}"><h3 th:utext="${message}"></h3></th:block>
+		<form action="/guess" method="post">
+			<label for="username">Number:</label>
+			<input type="text" name="number"> <br>
+			
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</body>
+</html>
+
+
+
+

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "CBF5rHoKBYRoO1ssSA+yaD9zW7bIqL+YxOIuoMaCcHYUq3Jl4tB2yLCrijsWijsEpiPP8DI83VbwYJfNVehkKQ==",
+  "success": true,
+  "projectFilePath": "/home/rikoteki/Desktop/OSWE/DotNetNuke/MultiDeserializer/MultiDeserializer.csproj",
+  "expectedPackageFiles": [
+    "/home/rikoteki/.nuget/packages/microsoft.netcore.app.ref/6.0.8/microsoft.netcore.app.ref.6.0.8.nupkg.sha512",
+    "/home/rikoteki/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.8/microsoft.aspnetcore.app.ref.6.0.8.nupkg.sha512",
+    "/home/rikoteki/.nuget/packages/microsoft.netcore.app.host.linux-x64/6.0.8/microsoft.netcore.app.host.linux-x64.6.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}

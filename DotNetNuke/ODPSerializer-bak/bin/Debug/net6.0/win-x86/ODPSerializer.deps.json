@@ -1,0 +1,54 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0/win-x86",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {},
+    ".NETCoreApp,Version=v6.0/win-x86": {
+      "ODPSerializer/1.0.0": {
+        "dependencies": {
+          "DotNetNuke": "9.1.0.367",
+          "PresentationFramework": "4.0.0.0"
+        },
+        "runtime": {
+          "ODPSerializer.dll": {}
+        }
+      },
+      "DotNetNuke/9.1.0.367": {
+        "runtime": {
+          "DotNetNuke.DLL": {
+            "assemblyVersion": "9.1.0.367",
+            "fileVersion": "9.1.0.367"
+          }
+        }
+      },
+      "PresentationFramework/4.0.0.0": {
+        "runtime": {
+          "PresentationFramework.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.7.3081.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ODPSerializer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DotNetNuke/9.1.0.367": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PresentationFramework/4.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

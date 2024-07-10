@@ -1,0 +1,58 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/ExpWrapSerializer.csproj": {}
+  },
+  "projects": {
+    "/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/ExpWrapSerializer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/ExpWrapSerializer.csproj",
+        "projectName": "ExpWrapSerializer",
+        "projectPath": "/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/ExpWrapSerializer.csproj",
+        "packagesPath": "/home/rikoteki/.nuget/packages/",
+        "outputPath": "/home/rikoteki/Desktop/OSWE/DotNetNuke/ExpWrapSerializer/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/rikoteki/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net4.5"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net45": {
+            "targetAlias": "net4.5",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net45": {
+          "targetAlias": "net4.5",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.2, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

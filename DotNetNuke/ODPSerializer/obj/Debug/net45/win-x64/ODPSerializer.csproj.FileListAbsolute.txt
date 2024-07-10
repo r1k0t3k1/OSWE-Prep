@@ -1,0 +1,10 @@
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ODPSerializer/obj/Debug/net45/win-x64/ODPSerializer.csproj.SuggestedBindingRedirects.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ODPSerializer/obj/Debug/net45/win-x64/ODPSerializer.GeneratedMSBuildEditorConfig.editorconfig
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ODPSerializer/obj/Debug/net45/win-x64/ODPSerializer.AssemblyInfoInputs.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ODPSerializer/obj/Debug/net45/win-x64/ODPSerializer.AssemblyInfo.cs
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ODPSerializer/obj/Debug/net45/win-x64/ODPSerializer.csproj.CoreCompileInputs.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ODPSerializer/bin/Debug/net45/win-x64/ODPSerializer.exe.config
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ODPSerializer/bin/Debug/net45/win-x64/ODPSerializer.exe
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ODPSerializer/bin/Debug/net45/win-x64/ODPSerializer.pdb
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ODPSerializer/obj/Debug/net45/win-x64/ODPSerializer.exe
+/home/rikoteki/Desktop/OSWE/DotNetNuke/ODPSerializer/obj/Debug/net45/win-x64/ODPSerializer.pdb

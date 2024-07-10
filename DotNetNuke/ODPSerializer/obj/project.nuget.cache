@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "BDAOZ/ganyeo7v3kZBtr7TyRdMK/oKbI2WjrxSmHS++5KK61pRyc/O7dXXb512GziP4fCEb2QHJo6LMftycy6g==",
+  "success": true,
+  "projectFilePath": "/home/rikoteki/Desktop/OSWE/DotNetNuke/ODPSerializer/ODPSerializer.csproj",
+  "expectedPackageFiles": [
+    "/home/rikoteki/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "/home/rikoteki/.nuget/packages/microsoft.netframework.referenceassemblies.net45/1.0.2/microsoft.netframework.referenceassemblies.net45.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,103 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "SerializeTest/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SerializeTest.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SerializeTest.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SerializeTest/1.0.0": {
+      "type": "project",
+      "path": "../SerializeTest/SerializeTest.csproj",
+      "msbuildProject": "../SerializeTest/SerializeTest.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "SerializeTest >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/home/rikoteki/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/rikoteki/Desktop/OSWE/DotNetNuke/DeserializeTest/DeserializeTest.csproj",
+      "projectName": "DeserializeTest",
+      "projectPath": "/home/rikoteki/Desktop/OSWE/DotNetNuke/DeserializeTest/DeserializeTest.csproj",
+      "packagesPath": "/home/rikoteki/.nuget/packages/",
+      "outputPath": "/home/rikoteki/Desktop/OSWE/DotNetNuke/DeserializeTest/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/rikoteki/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "/home/rikoteki/Desktop/OSWE/DotNetNuke/SerializeTest/SerializeTest.csproj": {
+              "projectPath": "/home/rikoteki/Desktop/OSWE/DotNetNuke/SerializeTest/SerializeTest.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.8, 6.0.8]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.linux-x64",
+            "version": "[6.0.8, 6.0.8]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.8, 6.0.8]"
+          }
+        ],
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

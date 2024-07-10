@@ -1,0 +1,15 @@
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/bin/Debug/net6.0/serialize_test
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/bin/Debug/net6.0/serialize_test.deps.json
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/bin/Debug/net6.0/serialize_test.runtimeconfig.json
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/bin/Debug/net6.0/serialize_test.dll
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/bin/Debug/net6.0/serialize_test.pdb
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/obj/Debug/net6.0/serialize_test.csproj.AssemblyReference.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/obj/Debug/net6.0/serialize_test.GeneratedMSBuildEditorConfig.editorconfig
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/obj/Debug/net6.0/serialize_test.AssemblyInfoInputs.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/obj/Debug/net6.0/serialize_test.AssemblyInfo.cs
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/obj/Debug/net6.0/serialize_test.csproj.CoreCompileInputs.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/obj/Debug/net6.0/serialize_test.dll
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/obj/Debug/net6.0/refint/serialize_test.dll
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/obj/Debug/net6.0/serialize_test.pdb
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/obj/Debug/net6.0/serialize_test.genruntimeconfig.cache
+/home/rikoteki/Desktop/OSWE/DotNetNuke/serialize_test/obj/Debug/net6.0/ref/serialize_test.dll
