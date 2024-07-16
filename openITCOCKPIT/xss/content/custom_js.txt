@@ -1,0 +1,13 @@
+https://openitcockpit/js/app/app_controller.js
+https://openitcockpit/js/compressed_components.js
+https://openitcockpit/js/compressed_controllers.js
+https://openitcockpit/frontend/js/bootstrap.js
+https://openitcockpit/js/app/bootstrap.js
+https://openitcockpit/js/app/layoutfix.js
+https://openitcockpit/smartadmin/js/notification/SmartNotification.js
+https://openitcockpit/smartadmin/js/demo.js
+https://openitcockpit/smartadmin/js/app.js
+https://openitcockpit/smartadmin/js/smartwidgets/jarvis.widget.js
+https://openitcockpit/js/compressed_angular_services.js
+https://openitcockpit/js/compressed_angular_directives.js
+https://openitcockpit/js/compressed_angular_controllers.js

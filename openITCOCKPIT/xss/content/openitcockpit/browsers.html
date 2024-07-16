@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="openITCOCKPIT">
+<head>
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script data-pace-options='{ "ajax": false }' src='/smartadmin/js/plugin/pace/pace.min.js'></script>
+    <title>
+        Browsers - open source system monitoring    </title>
+    <link href="/favicon.ico?v3.7.2" type="image/x-icon" rel="icon"/><link href="/favicon.ico?v3.7.2" type="image/x-icon" rel="shortcut icon"/>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery-jvectormap-1.2.2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery.imgareaselect-0.9.10/imgareaselect-animated.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery.svg.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap/css/bootstrap.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/chosen/chosen.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/chosen/chosen-bootstrap.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/list_filter.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/fineuploader/fineuploader-3.2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/select2/select2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/select2/select2-bootstrap.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap-datepicker.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap-datetimepicker.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/gauge/css/gauge.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/font-awesome.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-production.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-production-plugins.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-skins.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/demo.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/your_style.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/animate.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lockscreen.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/base.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/app.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/status.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lists.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/ansi.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/console.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/animate_new.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/prism.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/gridstack/gridstack.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/js/plugin/fullcalendar-2.3.1/fullcalendar.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/vis-4.21.0/dist/vis.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/my_vis.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/noty/noty.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/flippy.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/image-picker.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/angular-gridster/dist/angular-gridster.css?v3.7.2"/>
+<script src="/vendor/jquery/dist/jquery.min.js?v3.7.2"></script>
+<script src="/vendor/jqueryui/jquery-ui.min.js?v3.7.2"></script>
+<script src="/vendor/bootstrap/dist/js/bootstrap.min.js?v3.7.2"></script>
+<script src="/vendor/angular/angular.min.js?v3.7.2"></script>
+<script src="/js/lib/jquery-cookie.js?v3.7.2"></script>
+<script src="/js/vendor/chosen.jquery.min.js?v3.7.2"></script>
+<script src="/js/plugin/bootstrap-tags/bootstrap-tagsinput.min.js?v3.7.2"></script>
+<script src="/js/app/layoutfix.js?v3.7.2"></script>
+<script src="/js/lib/ColorGenerator.js?v3.7.2"></script>
+<script src="/js/lib/colr.js?v3.7.2"></script>
+<script src="/js/lib/php.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.cust.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.axislabels.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.time.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.fillbetween.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.resize.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.threshold.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.selection.js?v3.7.2"></script>
+<script src="/js/lib/jquery.nestable.js?v3.7.2"></script>
+<script src="/js/lib/angular-nestable.js?v3.7.2"></script>
+<script src="/js/lib/parseuri.js?v3.7.2"></script>
+<script src="/js/vendor/vis-4.21.0/dist/vis.js?v3.7.2"></script>
+<script src="/js/scripts/ng.app.js?v3.7.2"></script>
+<script src="/js/vendor/UUID.js-4.0.3/dist/uuid.core.js?v3.7.2"></script>
+<script src="/js/vendor/lodash/vendor/underscore/underscore.js?v3.7.2"></script>
+<script src="/js/vendor/noty/noty.min.js?v3.7.2"></script>
+<script src="/js/vendor/gauge.min.js?v3.7.2"></script>
+<script src="/js/lib/jquery.svg.min.js?v3.7.2"></script>
+<script src="/js/lib/jquery.svgfilter.min.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/dropzone/dropzone.min.js?v3.7.2"></script>
+<script src="/vendor/noty/noty.min.js?v3.7.2"></script>
+<script src="/js/lib/rangyinputs-jquery-1.1.2.min.js?v3.7.2"></script>
+<script src="/vendor/javascript-detect-element-resize/jquery.resize.js?v3.7.2"></script>
+<script src="/vendor/angular-gridster/dist/angular-gridster.min.js?v3.7.2"></script>
+<script src="/js/lib/GraphDefaults.js?v3.7.2"></script>
+<script src="/js/compressed_angular_services.js?v3.7.2"></script>
+<script src="/js/compressed_angular_directives.js?v3.7.2"></script>
+<script src="/js/compressed_angular_controllers.js?v3.7.2"></script>
+</head>
+<body ng-cloak class=" ng-cloak">
+<script>
+    Dropzone.autoDiscover = false;
+</script>
+
+<div id="global-loading">
+    <i class="fa fa-refresh fa-spin"></i>
+</div>
+
+<header id="header">
+    <div id="logo-group">
+        <span id="logo">
+            <div id="logo-image"></div>
+            <p id="logo-text">openITCOCKPIT</p>
+        </span>
+
+                    <system-health></system-health>
+            </div>
+
+
+            <div class="pull-right">
+            <div class="btn-header pull-right">
+            <span>
+                <a href="/login/logout" data-original-title="Sign out" data-placement="left"
+                   rel="tooltip" data-container="body">
+                    <i class="fa fa-sign-out"></i>
+                </a>
+            </span>
+            </div>
+
+            <div id="hide-menu" class="btn-header pull-right">
+            <span>
+                <a href="javascript:void(0);" data-original-title="Collapse menu"
+                   data-placement="left" rel="tooltip" data-container="body">
+                    <i class="fa fa-arrow-circle-left"></i>
+                </a>
+            </span>
+            </div>
+
+            <div class="btn-header pull-right">
+                <span>
+                                            <a href="/exports/index" export-status=""
+                           data-original-title="Refresh monitoring configuration"
+                           data-placement="left" rel="tooltip" data-container="body">
+                            <i class="fa fa-retweet" ng-hide="exportRunning"></i>
+                            <i class="fa fa-refresh fa-spin txt-color-red" ng-show="exportRunning"></i>
+                        </a>
+                                    </span>
+            </div>
+            <server-time></server-time>
+            <version-check></version-check>
+            <push-notifications></push-notifications>
+
+            
+        </div>
+    </header><aside id="left-panel">
+    <div class="login-info">
+                <span>
+            <a data-html="true" data-original-title="Edit profile" data-placement="right"
+               rel="tooltip" href="/profile/edit">
+                <img class="online" alt="me" src="/img/fallback_user.png">
+                <span style="max-width: 142px;">
+                    View Er              </span>
+           </a>
+                            <span class="text-info pull-right" style="margin-top: 11px;">
+                    <i class="fa fa-lg fa-trophy"
+                       style="color:#FFD700; text-shadow: 0px 0px 9px rgba(255, 255, 0, 0.50)" id="userRootIcon"
+                       data-html="true" data-original-title="Administrator privileges"
+                       data-placement="right" rel="tooltip"></i>
+                </span>
+                    </span>
+    </div>
+    <nav
+            menu
+            phpplugin=""
+            phpcontroller="browsers"
+            phpaction="index">
+    </nav>
+    <span class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+</aside>
+<div id="uglyDropdownMenuHack"></div>
+<div id="main" role="main" ng-controller="LayoutController">
+    <div id="ribbon" class="hidden-mobile hidden-tablet">
+        <span class="ribbon-button-alignment"></span>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li>
+                <a href="/browsers" icon="fa fa-cube"><i class="fa fa-cube"></i> Browsers</a>            </li>
+        </ol>
+        
+        <div class="pull-right">
+            <span id="global_ajax_loader"><i class="fa fa-refresh fa-spin"></i> Loading data</span>
+        </div>
+
+    </div>
+
+    <div id="content" style="opacity: 1;">
+                                <div ng-controller="BrowsersIndexController">
+            <div ui-view>
+                <ol class="breadcrumb">
+    <li></li> <!-- leading / -->
+    <li ng-class="{active: container.key == containerId}" ng-repeat="container in breadcrumbs">
+        <span ng-show="container.key == containerId">
+            {{container.value}}
+        </span>
+
+        <span ng-click="changeContainerId(container.key)"
+              class="pointer"
+              style="color:#337ab7;"
+              ng-show="container.key != containerId">
+            {{container.value}}
+        </span>
+
+    </li>
+</ol>
+<massdelete></massdelete>
+<massdeactivate></massdeactivate>
+
+
+<div class="row">
+    <article class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="jarviswidget node-list" role="widget">
+            <header>
+                <span class="widget-icon"> <i class="fa fa-list-ul"></i></span>
+                <h2> Nodes </h2>
+            </header>
+            <div class="no-padding height-100" style="overflow-y:auto; overflow-x: hidden;">
+
+                <div class="form-group smart-form">
+                    <label class="input"> <i class="icon-prepend fa fa-filter"></i>
+                        <input class="input-sm"
+                               placeholder="Type to filter..."
+                               ng-model="containerFilter"
+                               ng-model-options="{debounce: 250}"
+                               type="text">
+                    </label>
+                </div>
+                <div class="padding-10">
+                    <div class="widget-body">
+                        <div ng-repeat="container in containers">
+                            <i class="fa fa-home" ng-show="containerId === 1"></i>
+                            <i class="fa fa-link" ng-show="containerId !== 1"></i>
+                            <span ng-click="changeContainerId(container.key)" class="pointer" style="color:#337ab7;">
+                                {{container.value}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="jarviswidget">
+            <header>
+                <span class="widget-icon"> <i class="fa fa-pie-chart"></i></span>
+                <h2>Host status overview</h2>
+            </header>
+            <div>
+                <div class="widget-body padding-10 text-center">
+                    <div class="text-muted padding-top-20" ng-show="hoststatusSum === 0">
+                        No hosts associated with this node                    </div>
+
+                    <div ng-show="hoststatusSum > 0">
+                        <img ng-src="/angular/getPieChart/{{hoststatusCountHash[0]}}/{{hoststatusCountHash[1]}}/{{hoststatusCountHash[2]}}.png">
+
+                        <div class="col-xs-12 text-center padding-bottom-10 font-xs">
+                            <div class="col-xs-12 col-md-4 no-padding">
+                                <a ng-href="/hosts/index?filter%5BHoststatus.current_state%5D%5B0%5D=1&sort=Hoststatus.last_state_change&direction=desc&BrowserContainerId={{containerId}}">
+                                    <i class="fa fa-square ok"></i>
+                                    {{hoststatusCountHash[0]}} ({{hoststatusCountPercentage[0]}} %)
+                                </a>
+                            </div>
+
+                            <div class="col-xs-12 col-md-4 no-padding">
+                                <a ng-href="/hosts/index?filter%5BHoststatus.current_state%5D%5B1%5D=1&sort=Hoststatus.last_state_change&direction=desc&BrowserContainerId={{containerId}}">
+                                    <i class="fa fa-square critical"></i>
+                                    {{hoststatusCountHash[1]}} ({{hoststatusCountPercentage[1]}} %)
+                                </a>
+                            </div>
+
+                            <div class="col-xs-12 col-md-4 no-padding">
+                                <a ng-href="/hosts/index?filter%5BHoststatus.current_state%5D%5B2%5D=1&sort=Hoststatus.last_state_change&direction=desc&BrowserContainerId={{containerId}}">
+                                    <i class="fa fa-square unknown"></i>
+                                    {{hoststatusCountHash[2]}} ({{hoststatusCountPercentage[2]}} %)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="jarviswidget">
+            <header>
+                <span class="widget-icon"> <i class="fa fa-pie-chart"></i></span>
+                <h2>Service status overview</h2>
+            </header>
+            <div>
+                <div class="widget-body padding-10 text-center">
+                    <div class="text-muted padding-top-20" ng-show="servicestatusSum === 0">
+                        No services associated with this node                    </div>
+
+                    <div ng-show="servicestatusSum > 0">
+                        <img ng-src="/angular/getPieChart/{{servicestatusCountHash[0]}}/{{servicestatusCountHash[1]}}/{{servicestatusCountHash[2]}}/{{servicestatusCountHash[3]}}/.png">
+
+                        <div class="col-xs-12 text-center padding-bottom-10 font-xs">
+                            <div class="col-xs-12 col-md-3 no-padding">
+                                <a ng-href="/services/index?filter%5BServicestatus.current_state%5D%5B0%5D=1&sort=Servicestatus.last_state_change&direction=desc&BrowserContainerId={{containerId}}">
+                                    <i class="fa fa-square ok"></i>
+                                    {{servicestatusCountHash[0]}} ({{servicestatusCountPercentage[0]}} %)
+                                </a>
+                            </div>
+
+                            <div class="col-xs-12 col-md-3 no-padding">
+                                <a ng-href="/services/index?filter%5BServicestatus.current_state%5D%5B1%5D=1&sort=Servicestatus.last_state_change&direction=desc&BrowserContainerId={{containerId}}">
+                                    <i class="fa fa-square warning"></i>
+                                    {{servicestatusCountHash[1]}} ({{servicestatusCountPercentage[1]}} %)
+                                </a>
+                            </div>
+
+                            <div class="col-xs-12 col-md-3 no-padding">
+                                <a ng-href="/services/index?filter%5BServicestatus.current_state%5D%5B2%5D=1&sort=Servicestatus.last_state_change&direction=desc&BrowserContainerId={{containerId}}">
+                                    <i class="fa fa-square critical"></i>
+                                    {{servicestatusCountHash[2]}} ({{servicestatusCountPercentage[2]}} %)
+                                </a>
+                            </div>
+
+                            <div class="col-xs-12 col-md-3 no-padding">
+                                <a ng-href="/services/index?filter%5BServicestatus.current_state%5D%5B3%5D=1&sort=Servicestatus.last_state_change&direction=desc&BrowserContainerId={{containerId}}">
+                                    <i class="fa fa-square unknown"></i>
+                                    {{servicestatusCountHash[3]}} ({{servicestatusCountPercentage[3]}} %)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
+
+<div class="row">
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="jarviswidget" id="wid-id-1" data-widget-editbutton="false">
+            <header>
+                <div class="widget-toolbar" role="menu">
+                    <button type="button" class="btn btn-xs btn-default" ng-click="load()">
+                        <i class="fa fa-refresh"></i>
+                        Refresh                    </button>
+
+                                        <button type="button" class="btn btn-xs btn-primary" ng-click="triggerFilter()">
+                        <i class="fa fa-filter"></i>
+                        Filter                    </button>
+                </div>
+                <div class="jarviswidget-ctrls" role="menu"></div>
+
+                <span class="widget-icon hidden-mobile"> <i class="fa fa-desktop"></i> </span>
+                <h2 class="hidden-mobile">Hosts</h2>
+            </header>
+            <div>
+
+
+                <div class="widget-body no-padding">
+
+                    <div class="list-filter well" ng-show="showFilter">
+                        <h3><i class="fa fa-filter"></i> Filter</h3>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <div class="form-group smart-form">
+                                    <label class="input"> <i class="icon-prepend fa fa-desktop"></i>
+                                        <input type="text" class="input-sm"
+                                               placeholder="Filter by host name"
+                                               ng-model="filter.Host.name"
+                                               ng-model-options="{debounce: 500}">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <div class="form-group smart-form">
+                                    <label class="input"> <i class="icon-prepend fa fa-filter"></i>
+                                        <input type="text" class="input-sm"
+                                               placeholder="Filter by IP address"
+                                               ng-model="filter.Host.address"
+                                               ng-model-options="{debounce: 500}">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <div class="form-group smart-form">
+                                    <label class="input"> <i class="icon-prepend fa fa-filter"></i>
+                                        <input type="text" class="input-sm"
+                                               placeholder="Filter by output"
+                                               ng-model="filter.Hoststatus.output"
+                                               ng-model-options="{debounce: 500}">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-md-6">
+                                <div class="form-group smart-form">
+                                    <i class="icon-prepend fa fa-filter"></i>
+                                    <input type="text" class="input-sm"
+                                           data-role="tagsinput"
+                                           placeholder="Filter by tags"
+                                           ng-model="filter.Host.keywords"
+                                           ng-model-options="{debounce: 500}">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-xs-12 col-md-3">
+                                <fieldset>
+                                    <legend>Host status</legend>
+                                    <div class="form-group smart-form">
+                                        <label class="checkbox small-checkbox-label">
+                                            <input type="checkbox" name="checkbox" checked="checked"
+                                                   ng-model="filter.Hoststatus.current_state.up"
+                                                   ng-model-options="{debounce: 500}">
+                                            <i class="checkbox-success"></i>
+                                            Up                                        </label>
+
+
+                                        <label class="checkbox small-checkbox-label">
+                                            <input type="checkbox" name="checkbox" checked="checked"
+                                                   ng-model="filter.Hoststatus.current_state.down"
+                                                   ng-model-options="{debounce: 500}">
+                                            <i class="checkbox-danger"></i>
+                                            Down                                        </label>
+
+                                        <label class="checkbox small-checkbox-label">
+                                            <input type="checkbox" name="checkbox" checked="checked"
+                                                   ng-model="filter.Hoststatus.current_state.unreachable"
+                                                   ng-model-options="{debounce: 500}">
+                                            <i class="checkbox-default"></i>
+                                            Unreachable                                        </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+
+                            <div class="col-xs-12 col-md-3">
+                                <fieldset>
+                                    <legend>Acknowledgements</legend>
+                                    <div class="form-group smart-form">
+                                        <label class="checkbox small-checkbox-label">
+                                            <input type="checkbox" name="checkbox" checked="checked"
+                                                   ng-model="filter.Hoststatus.acknowledged"
+                                                   ng-model-options="{debounce: 500}">
+                                            <i class="checkbox-primary"></i>
+                                            Acknowledge                                        </label>
+
+                                        <label class="checkbox small-checkbox-label">
+                                            <input type="checkbox" name="checkbox" checked="checked"
+                                                   ng-model="filter.Hoststatus.not_acknowledged"
+                                                   ng-model-options="{debounce: 500}">
+                                            <i class="checkbox-primary"></i>
+                                            Not acknowledged                                        </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="col-xs-12 col-md-3">
+                                <fieldset>
+                                    <legend>Downtimes</legend>
+                                    <div class="form-group smart-form">
+                                        <label class="checkbox small-checkbox-label">
+                                            <input type="checkbox" name="checkbox" checked="checked"
+                                                   ng-model="filter.Hoststatus.in_downtime"
+                                                   ng-model-options="{debounce: 500}">
+                                            <i class="checkbox-primary"></i>
+                                            In downtime                                        </label>
+
+                                        <label class="checkbox small-checkbox-label">
+                                            <input type="checkbox" name="checkbox" checked="checked"
+                                                   ng-model="filter.Hoststatus.not_in_downtime"
+                                                   ng-model-options="{debounce: 500}">
+                                            <i class="checkbox-primary"></i>
+                                            Not in downtime                                        </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="pull-right margin-top-10">
+                                    <button type="button" ng-click="resetFilter()"
+                                            class="btn btn-xs btn-danger">
+                                        Reset Filter                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mobile_table">
+                        <table id="host_list"
+                               class="table table-striped table-hover table-bordered smart-form"
+                               style="">
+                            <thead>
+                            <tr>
+                                <th colspan="2" class="no-sort width-90" ng-click="orderBy('Hoststatus.current_state')">
+                                    <i class="fa" ng-class="getSortClass('Hoststatus.current_state')"></i>
+                                    Hoststatus                                </th>
+
+                                <th class="no-sort text-center">
+                                    <i class="fa fa-user fa-lg" title="is acknowledged"></i>
+                                </th>
+
+                                <th class="no-sort text-center">
+                                    <i class="fa fa-power-off fa-lg"
+                                       title="is in downtime"></i>
+                                </th>
+
+                                <th class="no-sort text-center">
+                                    <i class="fa fa fa-area-chart fa-lg" title="Grapher"></i>
+                                </th>
+
+                                <th class="no-sort text-center">
+                                    <i title="Shared" class="fa fa-sitemap fa-lg"></i>
+                                </th>
+
+                                <th class="no-sort text-center">
+                                    <strong title="Passively transferred host">P</strong>
+                                </th>
+
+                                <th class="no-sort" ng-click="orderBy('Host.name')">
+                                    <i class="fa" ng-class="getSortClass('Host.name')"></i>
+                                    Host name                                </th>
+
+                                <th class="no-sort" ng-click="orderBy('Host.address')">
+                                    <i class="fa" ng-class="getSortClass('Host.address')"></i>
+                                    IP address                                </th>
+
+                                <th class="no-sort tableStatewidth"
+                                    ng-click="orderBy('Hoststatus.last_state_change')">
+                                    <i class="fa" ng-class="getSortClass('Hoststatus.last_state_change')"></i>
+                                    Last state change                                </th>
+
+                                <th class="no-sort tableStatewidth" ng-click="orderBy('Hoststatus.last_check')">
+                                    <i class="fa" ng-class="getSortClass('Hoststatus.last_check')"></i>
+                                    Last check                                </th>
+
+                                <th class="no-sort" ng-click="orderBy('Hoststatus.output')">
+                                    <i class="fa" ng-class="getSortClass('Hoststatus.output')"></i>
+                                    Host output                                </th>
+
+                                <th class="no-sort" ng-click="orderBy('Host.satellite_id')">
+                                    <i class="fa" ng-class="getSortClass('Host.satellite_id')"></i>
+                                    Instance                                </th>
+
+                                <th class="no-sort text-center editItemWidth"><i class="fa fa-gear fa-lg"></i></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="host in hosts">
+                                <td class="width-5">
+                                    <input type="checkbox"
+                                           ng-model="massChange[host.Host.id]"
+                                           ng-show="host.Host.allow_edit">
+                                </td>
+
+                                <td class="text-center">
+                                    <hoststatusicon host="host"></hoststatusicon>
+                                </td>
+
+                                <td class="text-center">
+                                    <i class="fa fa-lg fa-user"
+                                       ng-show="host.Hoststatus.problemHasBeenAcknowledged"
+                                       ng-if="host.Hoststatus.acknowledgement_type == 1"></i>
+
+                                    <i class="fa fa-lg fa-user-o"
+                                       ng-show="host.Hoststatus.problemHasBeenAcknowledged"
+                                       ng-if="host.Hoststatus.acknowledgement_type == 2"
+                                       title="Sticky Acknowledgedment"></i>
+                                </td>
+
+                                <td class="text-center">
+                                    <i class="fa fa-lg fa-power-off"
+                                       ng-show="host.Hoststatus.scheduledDowntimeDepth > 0"></i>
+                                </td>
+
+                                <td class="text-center">
+                                                                            <a href="/services/serviceList/{{ host.Host.id }}"
+                                           class="txt-color-blueDark"
+                                           ng-if="host.Host.has_graphs">
+                                            <i class="fa fa-lg fa-area-chart"></i>
+                                        </a>
+                                                                    </td>
+
+                                <td class="text-center">
+
+                                    <a class="txt-color-blueDark" title="Shared"
+                                       ng-if="host.Host.allow_sharing === true && host.Host.containerIds.length > 1"
+                                       href="/hosts/sharing/{{ host.Host.id }}">
+                                        <i class="fa fa-sitemap fa-lg "></i></a>
+
+                                    <i class="fa fa-low-vision fa-lg txt-color-blueLight"
+                                       ng-if="host.Host.allow_sharing === false && host.Host.containerIds.length > 1"
+                                       title="Restricted view"></i>
+                                </td>
+
+                                <td class="text-center">
+                                    <strong title="Passively transferred host"
+                                            ng-show="host.Host.active_checks_enabled === false || host.Host.is_satellite_host === true">
+                                        P
+                                    </strong>
+                                </td>
+
+                                <td>
+                                                                            <a href="/hosts/browser/{{ host.Host.id }}">
+                                            {{ host.Host.hostname }}
+                                        </a>
+                                                                    </td>
+
+                                <td>
+                                    {{ host.Host.address }}
+                                </td>
+
+                                <td>
+                                    {{ host.Hoststatus.last_state_change }}
+                                </td>
+
+                                <td>
+                                    {{ host.Hoststatus.lastCheck }}
+                                </td>
+
+                                <td>
+                                    {{ host.Hoststatus.output }}
+                                </td>
+
+                                <td>
+                                    {{ host.Host.satelliteName }}
+                                </td>
+
+                                <td class="width-50">
+                                    <div class="btn-group">
+                                                                                    <a href="javascript:void(0);" class="btn btn-default">
+                                                &nbsp;<i class="fa fa-cog"></i>&nbsp;</a>
+                                                                                <a href="javascript:void(0);" data-toggle="dropdown"
+                                           class="btn btn-default dropdown-toggle"><span
+                                                    class="caret"></span></a>
+                                        <ul class="dropdown-menu pull-right" id="menuHack-{{host.Host.uuid}}">
+                                                                                                                                                                                                                                <li>
+                                                    <a href="/services/serviceList/{{host.Host.id}}">
+                                                        <i class="fa fa-list"></i> Service List                                                    </a>
+                                                </li>
+                                                                                        
+                                                                                                                                </ul>
+                                    </div>
+                                </td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="row margin-top-10 margin-bottom-10">
+                        <div class="row margin-top-10 margin-bottom-10" ng-show="hosts.length == 0">
+                            <div class="col-xs-12 text-center txt-color-red italic">
+                                No entries match the selection                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row margin-top-10 margin-bottom-10">
+                        <div class="col-xs-12 col-md-2 text-muted text-center">
+                            <span ng-show="selectedElements > 0">({{selectedElements}})</span>
+                        </div>
+                        <div class="col-xs-12 col-md-2">
+                                <span ng-click="selectAll()" class="pointer">
+                                    <i class="fa fa-lg fa-check-square-o"></i>
+                                    Select all                                </span>
+                        </div>
+                        <div class="col-xs-12 col-md-2">
+                                <span ng-click="undoSelection()" class="pointer">
+                                    <i class="fa fa-lg fa-square-o"></i>
+                                    Undo selection                                </span>
+                        </div>
+                        <div class="col-xs-12 col-md-2">
+                            <a ng-href="{{ linkForCopy() }}" class="a-clean">
+                                <i class="fa fa-lg fa-files-o"></i>
+                                Copy                            </a>
+                        </div>
+                        <div class="col-xs-12 col-md-2 txt-color-red">
+                                <span ng-click="confirmDelete(getObjectsForDelete())" class="pointer">
+                                    <i class="fa fa-lg fa-trash-o"></i>
+                                    Delete                                </span>
+                        </div>
+                        <div class="col-xs-12 col-md-2">
+                            <div class="btn-group">
+                                <a href="javascript:void(0);" class="btn btn-default">More</a>
+                                <a href="javascript:void(0);" data-toggle="dropdown"
+                                   class="btn btn-default dropdown-toggle"><span
+                                            class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                                                                                            
+
+                                                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <paginator paging="paging" click-action="changepage" ng-if="paging"></paginator>
+                </div>
+            </div>
+        </div>
+
+        <reschedule-host></reschedule-host>
+        <disable-host-notifications></disable-host-notifications>
+        <enable-host-notifications></enable-host-notifications>
+        <acknowledge-host author="View Er"></acknowledge-host>
+        <host-downtime author="View Er"></host-downtime>
+    </article>
+</div>
+            </div>
+        </div>
+            </div>
+</div>
+
+<div id="scroll-top-container">
+    <i class="fa fa-arrow-up fa-2x" title="Scroll back to top"></i>
+</div>
+
+<script src="/smartadmin/js/app.js"></script><script>
+    $(document).ready(function(){
+        //pageSetUp();
+
+    });
+</script>
+</body>
+</html>

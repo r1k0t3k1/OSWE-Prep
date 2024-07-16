@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="openITCOCKPIT">
+<head>
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script data-pace-options='{ "ajax": false }' src='/smartadmin/js/plugin/pace/pace.min.js'></script>
+    <title>
+        Currentstatereports - open source system monitoring    </title>
+    <link href="/favicon.ico?v3.7.2" type="image/x-icon" rel="icon"/><link href="/favicon.ico?v3.7.2" type="image/x-icon" rel="shortcut icon"/>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery-jvectormap-1.2.2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery.imgareaselect-0.9.10/imgareaselect-animated.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery.svg.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap/css/bootstrap.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/chosen/chosen.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/chosen/chosen-bootstrap.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/list_filter.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/fineuploader/fineuploader-3.2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/select2/select2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/select2/select2-bootstrap.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap-datepicker.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap-datetimepicker.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/gauge/css/gauge.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/font-awesome.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-production.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-production-plugins.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-skins.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/demo.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/your_style.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/animate.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lockscreen.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/base.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/app.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/status.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lists.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/ansi.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/console.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/animate_new.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/prism.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/gridstack/gridstack.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/js/plugin/fullcalendar-2.3.1/fullcalendar.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/vis-4.21.0/dist/vis.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/my_vis.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/noty/noty.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/flippy.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/image-picker.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/angular-gridster/dist/angular-gridster.css?v3.7.2"/>
+<script src="/vendor/jquery/dist/jquery.min.js?v3.7.2"></script>
+<script src="/vendor/jqueryui/jquery-ui.min.js?v3.7.2"></script>
+<script src="/vendor/bootstrap/dist/js/bootstrap.min.js?v3.7.2"></script>
+<script src="/vendor/angular/angular.min.js?v3.7.2"></script>
+<script src="/js/lib/jquery-cookie.js?v3.7.2"></script>
+<script src="/js/vendor/chosen.jquery.min.js?v3.7.2"></script>
+<script src="/js/plugin/bootstrap-tags/bootstrap-tagsinput.min.js?v3.7.2"></script>
+<script src="/js/app/layoutfix.js?v3.7.2"></script>
+<script src="/js/lib/ColorGenerator.js?v3.7.2"></script>
+<script src="/js/lib/colr.js?v3.7.2"></script>
+<script src="/js/lib/php.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.cust.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.axislabels.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.time.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.fillbetween.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.resize.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.threshold.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.selection.js?v3.7.2"></script>
+<script src="/js/lib/jquery.nestable.js?v3.7.2"></script>
+<script src="/js/lib/angular-nestable.js?v3.7.2"></script>
+<script src="/js/lib/parseuri.js?v3.7.2"></script>
+<script src="/js/vendor/vis-4.21.0/dist/vis.js?v3.7.2"></script>
+<script src="/js/scripts/ng.app.js?v3.7.2"></script>
+<script src="/js/vendor/UUID.js-4.0.3/dist/uuid.core.js?v3.7.2"></script>
+<script src="/js/vendor/lodash/vendor/underscore/underscore.js?v3.7.2"></script>
+<script src="/js/vendor/noty/noty.min.js?v3.7.2"></script>
+<script src="/js/vendor/gauge.min.js?v3.7.2"></script>
+<script src="/js/lib/jquery.svg.min.js?v3.7.2"></script>
+<script src="/js/lib/jquery.svgfilter.min.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/dropzone/dropzone.min.js?v3.7.2"></script>
+<script src="/vendor/noty/noty.min.js?v3.7.2"></script>
+<script src="/js/lib/rangyinputs-jquery-1.1.2.min.js?v3.7.2"></script>
+<script src="/vendor/javascript-detect-element-resize/jquery.resize.js?v3.7.2"></script>
+<script src="/vendor/angular-gridster/dist/angular-gridster.min.js?v3.7.2"></script>
+<script src="/js/lib/GraphDefaults.js?v3.7.2"></script>
+<script src="/js/compressed_angular_services.js?v3.7.2"></script>
+<script src="/js/compressed_angular_directives.js?v3.7.2"></script>
+<script src="/js/compressed_angular_controllers.js?v3.7.2"></script>
+</head>
+<body ng-cloak class=" ng-cloak">
+<script>
+    Dropzone.autoDiscover = false;
+</script>
+
+<div id="global-loading">
+    <i class="fa fa-refresh fa-spin"></i>
+</div>
+
+<header id="header">
+    <div id="logo-group">
+        <span id="logo">
+            <div id="logo-image"></div>
+            <p id="logo-text">openITCOCKPIT</p>
+        </span>
+
+                    <system-health></system-health>
+            </div>
+
+
+            <div class="pull-right">
+            <div class="btn-header pull-right">
+            <span>
+                <a href="/login/logout" data-original-title="Sign out" data-placement="left"
+                   rel="tooltip" data-container="body">
+                    <i class="fa fa-sign-out"></i>
+                </a>
+            </span>
+            </div>
+
+            <div id="hide-menu" class="btn-header pull-right">
+            <span>
+                <a href="javascript:void(0);" data-original-title="Collapse menu"
+                   data-placement="left" rel="tooltip" data-container="body">
+                    <i class="fa fa-arrow-circle-left"></i>
+                </a>
+            </span>
+            </div>
+
+            <div class="btn-header pull-right">
+                <span>
+                                            <a href="/exports/index" export-status=""
+                           data-original-title="Refresh monitoring configuration"
+                           data-placement="left" rel="tooltip" data-container="body">
+                            <i class="fa fa-retweet" ng-hide="exportRunning"></i>
+                            <i class="fa fa-refresh fa-spin txt-color-red" ng-show="exportRunning"></i>
+                        </a>
+                                    </span>
+            </div>
+            <server-time></server-time>
+            <version-check></version-check>
+            <push-notifications></push-notifications>
+
+            
+        </div>
+    </header><aside id="left-panel">
+    <div class="login-info">
+                <span>
+            <a data-html="true" data-original-title="Edit profile" data-placement="right"
+               rel="tooltip" href="/profile/edit">
+                <img class="online" alt="me" src="/img/fallback_user.png">
+                <span style="max-width: 142px;">
+                    View Er              </span>
+           </a>
+                            <span class="text-info pull-right" style="margin-top: 11px;">
+                    <i class="fa fa-lg fa-trophy"
+                       style="color:#FFD700; text-shadow: 0px 0px 9px rgba(255, 255, 0, 0.50)" id="userRootIcon"
+                       data-html="true" data-original-title="Administrator privileges"
+                       data-placement="right" rel="tooltip"></i>
+                </span>
+                    </span>
+    </div>
+    <nav
+            menu
+            phpplugin=""
+            phpcontroller="currentstatereports"
+            phpaction="index">
+    </nav>
+    <span class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+</aside>
+<div id="uglyDropdownMenuHack"></div>
+<div id="main" role="main" ng-controller="LayoutController">
+    <div id="ribbon" class="hidden-mobile hidden-tablet">
+        <span class="ribbon-button-alignment"></span>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li>
+                <a href="/currentstatereports" icon="fa fa-cube"><i class="fa fa-cube"></i> Currentstatereports</a>            </li>
+        </ol>
+        
+        <div class="pull-right">
+            <span id="global_ajax_loader"><i class="fa fa-refresh fa-spin"></i> Loading data</span>
+        </div>
+
+    </div>
+
+    <div id="content" style="opacity: 1;">
+                                <div ng-controller="CurrentstatereportsIndexController">
+            <div ui-view>
+                <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h1 class="page-title txt-color-blueDark">
+            <i class="fa fa-file-image-o fa-fw "></i>
+            Adhoc Reports            <span>>
+                Current State Report            </span>
+        </h1>
+    </div>
+</div>
+<div id="error_msg"></div>
+<div class="jarviswidget">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-pencil-square-o"></i> </span>
+        <h2>Create Current State Report</h2>
+        <div class="widget-toolbar" role="menu">
+            <a href="/currentstatereports" class="btn btn-default btn-xs" iconColor="white"><i class="glyphicon glyphicon-white glyphicon-arrow-left"></i> Back to list</a>        </div>
+    </header>
+    <div>
+        <div class="widget-body">
+            <form action="/currentstatereports" novalidate="novalidate" class="form-horizontal clear" id="CurrentstatereportIndexForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>            <div class="form-group required" ng-class="{'has-error': errors.Service}">
+                <label class="col-xs-1 col-md-1 col-lg-1 control-label">
+                    Service                </label>
+                <div class="col col-xs-10">
+                    <select multiple
+                            id="ServiceId"
+                            data-placeholder="Please choose"
+                            class="form-control"
+                            chosen="services"
+                            callback="loadServices"
+                            ng-options="service.value.Service.id as service.value.Host.name + '/' +((service.value.Service.name)?service.value.Service.name:service.value.Servicetemplate.name) group by service.value.Host.name for service in services"
+                            ng-model="post.Currentstatereport.Service">
+                    </select>
+                    <div ng-repeat="error in errors.Service">
+                        <div class="help-block text-danger">{{ error }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group required" ng-class="{'has-error': errors.current_state}">
+                <label class="col-xs-1 col-md-1 col-lg-1 control-label">
+                    State filter                </label>
+                <div class="col col-xs-10">
+                    <label>
+                        <input type="checkbox" ng-model="current_state.ok"/>
+                        Ok                    </label>
+
+                    <label>
+                        <input type="checkbox" ng-model="current_state.warning"/>
+                        Warning                    </label>
+
+                    <label>
+                        <input type="checkbox" ng-model="current_state.critical"/>
+                        Critical                    </label>
+
+                    <label>
+                        <input type="checkbox" ng-model="current_state.unknown"/>
+                        Unknown                    </label>
+                </div>
+                <div class="col col-xs-offset-1 col-xs-10" ng-repeat="error in errors.current_state">
+                    <div class="help-block text-danger">{{ error }}</div>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error': errors.report_format}">
+                <label class="col-xs-1 col-md-1 col-lg-1 control-label">
+                    Report format                </label>
+                <div class="col col-xs-10 col-md-10 col-lg-10">
+                    <label class="padding-right-10">
+                        <input type="radio" name="report_format" ng-model="reportformat" value="1">
+                        <i class="fa fa-file-pdf-o"></i> PDF                    </label>
+                    <label class="padding-right-10">
+                        <input type="radio" name="report_format" ng-model="reportformat" value="2">
+                        <i class="fa fa-html5"></i> HTML                    </label>
+                    <div ng-repeat="error in errors.report_format">
+                        <div class="help-block text-danger">{{ error }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="alert alert-info" ng-show="generatingReport">
+                    <i class="fa fa-spin fa-refresh"></i>
+                    Generating report...                </div>
+            </div>
+
+            <div class="row">
+                <div class="alert alert-info" ng-show="noDataFound">
+                    {{ noDataFoundMessage }}
+                </div>
+            </div>
+
+        </div>
+        <div class="well formactions ">
+            <div class="pull-right">
+                <input type="button"
+                       class="btn btn-primary"
+                       value="Create"
+                       ng-click="createCurrentStateReport()"
+                >
+                &nbsp;
+                <a href="/currentstatereports" class="btn btn-default">
+                    Cancel                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+            </div>
+        </div>
+            </div>
+</div>
+
+<div id="scroll-top-container">
+    <i class="fa fa-arrow-up fa-2x" title="Scroll back to top"></i>
+</div>
+
+<script src="/smartadmin/js/app.js"></script><script>
+    $(document).ready(function(){
+        //pageSetUp();
+
+    });
+</script>
+</body>
+</html>

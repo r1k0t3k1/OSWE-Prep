@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="openITCOCKPIT">
+<head>
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script data-pace-options='{ "ajax": false }' src='/smartadmin/js/plugin/pace/pace.min.js'></script>
+    <title>
+        Documentations - open source system monitoring    </title>
+    <link href="/favicon.ico?v3.7.2" type="image/x-icon" rel="icon"/><link href="/favicon.ico?v3.7.2" type="image/x-icon" rel="shortcut icon"/><script type="text/javascript" src="/frontend/js/lib/basics.js?v3.7.2"></script>
+<script type="text/javascript" src="/frontend/js/lib/jinheritance.js?v3.7.2"></script>
+<script type="text/javascript" src="/frontend/js/lib/jquery.min.js?v3.7.2"></script>
+<script type="text/javascript" src="/frontend/js/lib/publish_subscribe_broker.js?v3.7.2"></script>
+<script type="text/javascript" src="/frontend/js/lib/app.js?v3.7.2"></script>
+<script type="text/javascript" src="/frontend/js/lib/controller.js?v3.7.2"></script>
+<script type="text/javascript" src="/frontend/js/lib/component.js?v3.7.2"></script>
+<script type="text/javascript" src="/frontend/js/lib/router.js?v3.7.2"></script>
+<script type="text/javascript" src="/js/app/app_controller.js?v3.7.2"></script>
+<script type="text/javascript" src="/js/compressed_components.js?v3.7.2"></script>
+<script type="text/javascript" src="/js/compressed_controllers.js?v3.7.2"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+			var appData = {"jsonData":{"isAjax":false,"isMobile":false,"websocket_url":"wss:\/\/openitcockpit\/sudo_server","akey":"1fea123e07f730f76e661bced33a94152378611e"},"webroot":"https:\/\/openitcockpit\/","url":"","controller":"Documentations","action":"wiki","params":{"named":[],"pass":[],"plugin":null,"controller":"documentations","action":"wiki"},"Types":{"CODE_SUCCESS":"success","CODE_ERROR":"error","CODE_EXCEPTION":"exception","CODE_MISSING_PARAMETERS":"missing_parameters","CODE_NOT_AUTHENTICATED":"not_authenticated","CODE_AUTHENTICATION_FAILED":"authentication_failed","CODE_VALIDATION_FAILED":"validation_failed","CODE_NOT_ALLOWED":"not_allowed","CODE_NOT_AVAILABLE":"not_available","CODE_INVALID_TRIGGER_ACTION_ID":"invalid_trigger_action_id","ROLE_ADMIN":"admin","ROLE_EMPLOYEE":"employee"}};
+		
+//]]>
+</script><script type="text/javascript" src="/frontend/js/bootstrap.js?v3.7.2"></script>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery-jvectormap-1.2.2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery.imgareaselect-0.9.10/imgareaselect-animated.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery.svg.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap/css/bootstrap.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/chosen/chosen.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/chosen/chosen-bootstrap.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/list_filter.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/fineuploader/fineuploader-3.2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/select2/select2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/select2/select2-bootstrap.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap-datepicker.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap-datetimepicker.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/gauge/css/gauge.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/font-awesome.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-production.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-production-plugins.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-skins.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/demo.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/your_style.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/animate.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lockscreen.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/base.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/app.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/status.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lists.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/ansi.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/console.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/animate_new.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/prism.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/gridstack/gridstack.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/js/plugin/fullcalendar-2.3.1/fullcalendar.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/vis-4.21.0/dist/vis.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/my_vis.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/noty/noty.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/flippy.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/image-picker.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/angular-gridster/dist/angular-gridster.css?v3.7.2"/>
+
+	<script type="text/javascript" src="/js/lib/php.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/colr.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/ColorGenerator.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/GraphDefaults.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/app/bootstrap.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/app/layoutfix.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/jquery.blockUI.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/ui_blocker.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/dialog.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery.hotkeys.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jqconsole.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/bootstrap.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/chosen.jquery.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/moment-with-locales.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/fineuploader/jquery.fineuploader-3.2.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/select2.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/bootstrap-datepicker.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/bootstrap-datetimepicker.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/plugin/bootstrap-slider/bootstrap-slider.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/plugin/bootstrap-tags/bootstrap-tagsinput.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/notification/SmartNotification.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/demo.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/app.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/smartwidgets/jarvis.widget.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/sparkline/jquery.sparkline.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.cust.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.time.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/jquery-validate/jquery.validate.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.orderBar.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.fillbetween.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.pie.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.resize.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.navigate.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.threshold.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.selection.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/colorpicker/bootstrap-colorpicker.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/dropzone/dropzone.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/datatables/jquery.dataTables.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/datatables/dataTables.bootstrap.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/datatables/dataTables.colReorder.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/datatables/dataTables.colVis.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/datatables/dataTables.tableTools.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/datatables/fnPagingInfo.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/fullcalendar-2.3.1/fullcalendar.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/fuelux/wizard/wizard.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery-cookie.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery.nestable.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery-jvectormap-1.2.2.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/maps/jquery-jvectormap-world-mill-en.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery-ui-1.11.2.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/rangyinputs-jquery-1.1.2.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery.imgareaselect-0.9.10/scripts/jquery.imgareaselect.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery.svg.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/bootbox.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery.svgfilter.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/jquery.qrcode.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/jquery.blockUI.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/prism.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/gauge/gauge.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/lodash/lodash.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/gridstack/dist/gridstack.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/ChosenAjax.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/UUID.js-4.0.3/dist/uuid.core.js?v3.7.2"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/js/vendor/html5shiv.js"></script>
+    <script src="/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+<script src="/vendor/angular/angular.min.js"></script><script src="/js/vendor/vis-4.21.0/dist/vis.js"></script><script src="/js/scripts/ng.app.js"></script><script src="/vendor/javascript-detect-element-resize/jquery.resize.js"></script><script src="/vendor/angular-gridster/dist/angular-gridster.min.js"></script><script src="/js/lib/angular-nestable.js"></script><script src="/js/compressed_angular_services.js"></script><script src="/js/compressed_angular_directives.js"></script><script src="/js/compressed_angular_controllers.js"></script></head>
+<body class="">
+
+<div id="global-loading">
+    <i class="fa fa-refresh fa-spin"></i>
+</div>
+
+<header id="header">
+    <div id="logo-group">
+        <span id="logo">
+            <div id="logo-image"></div>
+            <p id="logo-text">openITCOCKPIT</p>
+        </span>
+
+                    <system-health></system-health>
+            </div>
+
+
+            <div class="pull-right">
+            <div class="btn-header pull-right">
+            <span>
+                <a href="/login/logout" data-original-title="Sign out" data-placement="left"
+                   rel="tooltip" data-container="body">
+                    <i class="fa fa-sign-out"></i>
+                </a>
+            </span>
+            </div>
+
+            <div id="hide-menu" class="btn-header pull-right">
+            <span>
+                <a href="javascript:void(0);" data-original-title="Collapse menu"
+                   data-placement="left" rel="tooltip" data-container="body">
+                    <i class="fa fa-arrow-circle-left"></i>
+                </a>
+            </span>
+            </div>
+
+            <div class="btn-header pull-right">
+                <span>
+                                            <a href="/exports/index" export-status=""
+                           data-original-title="Refresh monitoring configuration"
+                           data-placement="left" rel="tooltip" data-container="body">
+                            <i class="fa fa-retweet" ng-hide="exportRunning"></i>
+                            <i class="fa fa-refresh fa-spin txt-color-red" ng-show="exportRunning"></i>
+                        </a>
+                                    </span>
+            </div>
+            <server-time></server-time>
+            <version-check></version-check>
+            <push-notifications></push-notifications>
+
+            
+        </div>
+    </header><aside id="left-panel">
+    <div class="login-info">
+                <span>
+            <a data-html="true" data-original-title="Edit profile" data-placement="right"
+               rel="tooltip" href="/profile/edit">
+                <img class="online" alt="me" src="/img/fallback_user.png">
+                <span style="max-width: 142px;">
+                    View Er              </span>
+           </a>
+                            <span class="text-info pull-right" style="margin-top: 11px;">
+                    <i class="fa fa-lg fa-trophy"
+                       style="color:#FFD700; text-shadow: 0px 0px 9px rgba(255, 255, 0, 0.50)" id="userRootIcon"
+                       data-html="true" data-original-title="Administrator privileges"
+                       data-placement="right" rel="tooltip"></i>
+                </span>
+                    </span>
+    </div>
+    <nav
+            menu
+            phpplugin=""
+            phpcontroller="documentations"
+            phpaction="wiki">
+    </nav>
+    <span class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+</aside>
+<div id="uglyDropdownMenuHack"></div>
+<div id="main" role="main" ng-controller="LayoutController">
+    <div id="ribbon" class="hidden-mobile hidden-tablet">
+        <span class="ribbon-button-alignment"></span>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li>
+                <a href="/documentations" icon="fa fa-cube"><i class="fa fa-cube"></i> Documentations</a>            </li>
+        </ol>
+
+        
+        <div class="pull-right">
+            <span id="global_ajax_loader"><i class="fa fa-refresh fa-spin"></i> Loading data</span>
+        </div>
+
+    </div>
+
+    <div id="content" style="opacity: 1;">
+        <div class="controller Documentations_wiki">
+                                    <div class="row">
+    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-12">
+        <h1 class="page-title txt-color-blueDark">
+            <i class="fa fa-book fa-fw "></i>
+            Documentation            <span>>
+                openITCOCKPIT			</span>
+        </h1>
+    </div>
+</div>
+
+<div class="jarviswidget" id="wid-id-0">
+    <header>
+        <span class="widget-icon"> <i class="fa fa-book"></i> </span>
+        <h2>Documentation</h2>
+            </header>
+    <div>
+        <div class="widget-body">
+                            <div class="input-group input-group-lg">
+                    <input class="form-control input-lg" placeholder="Type to search..."
+                           id="search-documentation" type="text">
+                    <div class="input-group-btn">
+                        <a href="javascript:void(0);" class="btn btn-default">
+                            &nbsp;&nbsp;&nbsp;<i class="fa fa-fw fa-search fa-lg"></i>&nbsp;&nbsp;&nbsp;
+                        </a>
+                    </div>
+                </div>
+                <div class="wiki-search-results"></div>
+                <div class="docs-container">
+                                            <div class="wiki-category">
+                            <h3>Dashboard</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/dashboard/dashboard/en">Dashboard</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                The dashboard is your desktop in openITCOCKPIT, where you can add widigets that gather the information you need to see.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>Eventcorrelations</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/eventcorrelations/eventcorrelations/en">Eventcorrelations</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                You can associate different services from different host so you do not have to look your self for a specific correlation, such as if a host group has a ram usage over 90% you buy new hardware for this host group.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/eventcorrelations/evc_hosttemplates/en">EVC Hosttemplates</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                You need event correlation host templates to create an event correlation.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/eventcorrelations/evc_servicetemplates/en">EVC Servicetemplates</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                You need event correlation service templates to create an event correlation.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>Maps</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/maps/statusmap/en">Statusmap</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                The statusmap visualizes your hosts, with their connection with each other and their states.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/maps/automap/en">Automap</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                You can quickly create a map of host and their services filtered by regular expressions.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/maps/maps/en">Maps</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Use the map to customize the visualization of host and services on a map.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/maps/rotations/en">Rotations</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                A map rotation can rotate through a group of maps in an interval.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>Basic Monitoring</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/hosts/en">Hosts</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                A host is a device connected to a network.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/services/en">Services</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                A service is command with which you retrieve informations from a host.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/browser/en">Browser</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Here you can browse your nodes.The browser will give you an overview over the current host and service status of all host and services in your current node.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/hosttemplates/en">Hosttemplates</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Use host templates for easier host creation.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/servicetemplates/en">Servicetemplates</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Use service templates for easier service creation.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/servicetemplategroups/en">Servicetemplategroups</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Use service template groups to append not present services to a host or a host group in an easy way.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/hostgroups/en">Hostgroups</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Host groups contain a group of hosts. You can assign all hosts to an action by only choosing the group.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/servicegroups/en">Servicegroups</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                service groups contain a group of services. You can assign all services to an action by only choosing the group.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/contacts/en">Contacts</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Contacts contain information whom to notify in case of a particular state of a host or service.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/contactgroups/en">Contactgroups</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Contact groups contain a group of contacts. You can assign all contacts to a notification by only choosing the group.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/calendar/en">Calendar</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                You can use the calendar to configure your holidays where the monitoring software will not send any notifications.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/timeperiods/en">Timeperiods</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Timeperiods contain a timespan for a regular week in which the monitoring of a service or host takes place.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/commands/en">Commands</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                A command executes as a nagios terminal command from the user nagios on your server.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/tenants/en">Tenants</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Tenants contain information about user permissions to Nagios objects.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/nodes/en">Nodes</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Organize your tenant structure.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/locations/en">Locations</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Locations contain information about a specified location of a tenant node.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/grafana/en">Grafana</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                You can generate graphs with data from different services.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/downtimes/en">Downtimes</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                You can configure a downtime for hosts and services such as for a planned maintenance. In the time of the maintenance the hosts or services are not tracked by your monitoring system.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/logentries/en">Logentries</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Logentries contain logs, wich you can look through and filter or search wich logs you want to see.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/notifications/en">Notifications</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Notifications will show you host or service notifications in a timespan.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/basic-monitoring/performance_info/en">Performance Info</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Here you get an overview over your system preformance.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>Expert Monitoring</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/expert-monitoring/user-defined-macros/en">User Defined Macros</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Intended for system paths or specific system command line options, to make your Nagios configuration more reusable in other system environments.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/expert-monitoring/host-escalations/en">Host Escalations</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Host escalations are optional follow-up notifications, that generates if a state change is not revoked in time.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/expert-monitoring/service-escalations/en">Service Escalations</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Service escalations are optional follow-up notifications, that generates if a state change is not revoked in time.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/expert-monitoring/host-dependencies/en">Host Dependencies</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                [Host dependencies] are optional settings to associate multiple hosts.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/expert-monitoring/service-dependencies/en">Service Dependencies</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Service dependencies are optional settings to associate multiple services.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/expert-monitoring/external-commands/en">External Commands</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                The interface will help you create your own external commands by generating an example to explain of the supported command you want to use.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>Distributed Monitoring</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/distributed_monitoring/satellites/en">Satellites</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Satellites are server which check hosts and deliver the results as a passive check to nagios.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>Reporting</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/reporting/instant_report/en">Instant Report</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Instant reports generate reports in different formats of hosts or hosts and their services in a defined time span with hard or hard and soft sates.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/reporting/downtime_report/en">Downtime Report</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Downtime reports generate reports in different formats of hosts or hosts and their services in a defined time span in which downtimes occurred.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/reporting/current_state_report/en">Current State Report</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Current state reports generate in different formats the current service states.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/reporting/autoreport/en">Autoreport</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                An autoreport automatically reports a report in a user defined way in a defined time to the defined user.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/reporting/settings/en">Settings</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                General settings for an autoreport.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>Monitoring and Plugins</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/plugins/nrpe/en">NRPE - Nagios Remote Plugin Executor [Linux]</a></h4>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/plugins/check_by_ssh/en">check_by_ssh [Linux]</a></h4>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/plugins/check_mysql_health/en">check_mysql_health</a></h4>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>Discovery</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/discovery/mk_checks/en">Mk Checks</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                A check_MK check is a check where you only interact with the host once.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/discovery/mk_servicetemplates/en">Mk Servicetemplates</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                You need MK service templates to add a new MK check.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>Documentation</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/documentation/documentation/en">Documentation</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                How to use this documentation.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>Communication</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/communication/communication/en">Communication</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Only users from your openITCOCKPIT implementation, can connect to the chat and chat with you.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>Administration</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/administration/changelog/en">Changelog</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Changelog contains changes that made to your system, like editing, creating or deleting a nagios object.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/administration/proxy_settings/en">Proxy Settings</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Here you can set up your proxy if needed.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/administration/package_manager/en">Package Manager</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                In this section you can see the available packages for openITCOCKPIT v3 and the changes that came with the new version of openITCOCKPIT v3.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/administration/manage_users/en">Manage Users</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                You can create, edit and delete users.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/administration/manage_user_groups/en">Manage User Groups</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Manage a group of users.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/administration/debugging/en">Debugging</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                In the debug section you will find information about the interface, processes, server, user and PHP.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/administration/systemfailures/en">Systemfailures</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                If your nagios did not work or is not working for some time, you can create a system failure to ignore nagios states for the defined time.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/administration/systemsettings/en">Systemsettings</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Here you configure settings for your web server, sudo server, monitoring, system, front end, check_mk and archive.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/administration/cronjobs/en">Cronjobs</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Cronjobs are tasks that will execute every x minutes.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/administration/registration/en">Registration</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                In the registration section you can view details of your current license key and get a feedback if your key is valid or not.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>i-doit</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/i-doit/i-doit_systems/en">i-doit systems</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Configure your i-doit systems.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/i-doit/software-link_list/en">Software-Link list</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Create a software link list matched by a regular expression and a service template group                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/i-doit/synchronisation/en">Synchronisation</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Synchronizes i-doit and openITCOCKPIT.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/i-doit/host_comparison/en">Host comparison</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Find out which hosts exist only in openITCOCKPIT.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>Other modules</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/other_modules/LinuxBasicMonitoringModule/en">LinuxBasicMonitoringModule</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Linux basic monitoring module with nrpe                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/other_modules/NWCModule/en">NWCModul</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Network monitoring with nwc_health                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/other_modules/WMIModule/en">WMIModule</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Windows monitoring with WMI                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/other_modules/PostgresModule/en">PostgresModule</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Postgres monitoring with nrpe                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/other_modules/AlfrescoModule/en">AlfrescoModule</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Alfresco frontend and jmx monitoring                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>Contribute and develop</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/contribute_dev/github/en">GitHub</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                A short description what GitHub is and why we use it                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/contribute_dev/code_style/en">Code style guide</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Information about coding standard you should fulfill                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                            <div class="wiki-category">
+                            <h3>Additional Help</h3>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/additional_help/markdown/en">Markdown</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                A cheatsheet to help writing markdown formatted texts.                                             </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/additional_help/mysql_performance/en">MySQL performance</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                A few tips to optimize your MySQL performance.                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/additional_help/manual_installation/en">Manual installation</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                Describes how to install openITCOCKPIT on a different distribution                                            </p>
+                                        </div>
+                                                                    </div>
+                                                                                            <div class="search-results clearfix">
+                                    <h4><a href="/documentations/wiki/additional_help/browser_push_notifications/en">Browser Push Notifications</a></h4>
+                                                                            <div>
+                                            <p class="description">
+                                                How to setup openITCOCKPIT browser push notifications                                            </p>
+                                        </div>
+                                                                    </div>
+                                                    </div>
+                                    </div>
+            
+                    </div>
+    </div>
+</div>
+                    </div>
+    </div>
+</div>
+<div id="scroll-top-container">
+    <i class="fa fa-arrow-up fa-2x" title="Scroll back to top"></i>
+</div>
+</body>
+</html>

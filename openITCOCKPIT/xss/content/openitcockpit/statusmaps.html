@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="openITCOCKPIT">
+<head>
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script data-pace-options='{ "ajax": false }' src='/smartadmin/js/plugin/pace/pace.min.js'></script>
+    <title>
+        Statusmaps - open source system monitoring    </title>
+    <link href="/favicon.ico?v3.7.2" type="image/x-icon" rel="icon"/><link href="/favicon.ico?v3.7.2" type="image/x-icon" rel="shortcut icon"/>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery-jvectormap-1.2.2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery.imgareaselect-0.9.10/imgareaselect-animated.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery.svg.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap/css/bootstrap.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/chosen/chosen.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/chosen/chosen-bootstrap.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/list_filter.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/fineuploader/fineuploader-3.2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/select2/select2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/select2/select2-bootstrap.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap-datepicker.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap-datetimepicker.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/gauge/css/gauge.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/font-awesome.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-production.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-production-plugins.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-skins.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/demo.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/your_style.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/animate.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lockscreen.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/base.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/app.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/status.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lists.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/ansi.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/console.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/animate_new.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/prism.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/gridstack/gridstack.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/js/plugin/fullcalendar-2.3.1/fullcalendar.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/vis-4.21.0/dist/vis.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/my_vis.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/noty/noty.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/flippy.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/image-picker.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/angular-gridster/dist/angular-gridster.css?v3.7.2"/>
+<link rel="stylesheet" type="text/css" href="/css/vendor/vis-4.21.0/dist/vis.min.css?v3.7.2"/><link rel="stylesheet" type="text/css" href="/css/vendor/css3-percentage-loader/circle.css?v3.7.2"/><script src="/vendor/jquery/dist/jquery.min.js?v3.7.2"></script>
+<script src="/vendor/jqueryui/jquery-ui.min.js?v3.7.2"></script>
+<script src="/vendor/bootstrap/dist/js/bootstrap.min.js?v3.7.2"></script>
+<script src="/vendor/angular/angular.min.js?v3.7.2"></script>
+<script src="/js/lib/jquery-cookie.js?v3.7.2"></script>
+<script src="/js/vendor/chosen.jquery.min.js?v3.7.2"></script>
+<script src="/js/plugin/bootstrap-tags/bootstrap-tagsinput.min.js?v3.7.2"></script>
+<script src="/js/app/layoutfix.js?v3.7.2"></script>
+<script src="/js/lib/ColorGenerator.js?v3.7.2"></script>
+<script src="/js/lib/colr.js?v3.7.2"></script>
+<script src="/js/lib/php.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.cust.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.axislabels.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.time.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.fillbetween.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.resize.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.threshold.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/flot/jquery.flot.selection.js?v3.7.2"></script>
+<script src="/js/lib/jquery.nestable.js?v3.7.2"></script>
+<script src="/js/lib/angular-nestable.js?v3.7.2"></script>
+<script src="/js/lib/parseuri.js?v3.7.2"></script>
+<script src="/js/vendor/vis-4.21.0/dist/vis.js?v3.7.2"></script>
+<script src="/js/scripts/ng.app.js?v3.7.2"></script>
+<script src="/js/vendor/UUID.js-4.0.3/dist/uuid.core.js?v3.7.2"></script>
+<script src="/js/vendor/lodash/vendor/underscore/underscore.js?v3.7.2"></script>
+<script src="/js/vendor/noty/noty.min.js?v3.7.2"></script>
+<script src="/js/vendor/gauge.min.js?v3.7.2"></script>
+<script src="/js/lib/jquery.svg.min.js?v3.7.2"></script>
+<script src="/js/lib/jquery.svgfilter.min.js?v3.7.2"></script>
+<script src="/smartadmin/js/plugin/dropzone/dropzone.min.js?v3.7.2"></script>
+<script src="/vendor/noty/noty.min.js?v3.7.2"></script>
+<script src="/js/lib/rangyinputs-jquery-1.1.2.min.js?v3.7.2"></script>
+<script src="/vendor/javascript-detect-element-resize/jquery.resize.js?v3.7.2"></script>
+<script src="/vendor/angular-gridster/dist/angular-gridster.min.js?v3.7.2"></script>
+<script src="/js/lib/GraphDefaults.js?v3.7.2"></script>
+<script src="/smartadmin/js/notification/SmartNotification.js?v3.7.2"></script>
+<script src="/js/compressed_angular_services.js?v3.7.2"></script>
+<script src="/js/compressed_angular_directives.js?v3.7.2"></script>
+<script src="/js/compressed_angular_controllers.js?v3.7.2"></script>
+</head>
+<body ng-cloak class=" ng-cloak">
+<script>
+    Dropzone.autoDiscover = false;
+</script>
+
+<div id="global-loading">
+    <i class="fa fa-refresh fa-spin"></i>
+</div>
+
+<header id="header">
+    <div id="logo-group">
+        <span id="logo">
+            <div id="logo-image"></div>
+            <p id="logo-text">openITCOCKPIT</p>
+        </span>
+
+                    <system-health></system-health>
+            </div>
+
+
+            <div class="pull-right">
+            <div class="btn-header pull-right">
+            <span>
+                <a href="/login/logout" data-original-title="Sign out" data-placement="left"
+                   rel="tooltip" data-container="body">
+                    <i class="fa fa-sign-out"></i>
+                </a>
+            </span>
+            </div>
+
+            <div id="hide-menu" class="btn-header pull-right">
+            <span>
+                <a href="javascript:void(0);" data-original-title="Collapse menu"
+                   data-placement="left" rel="tooltip" data-container="body">
+                    <i class="fa fa-arrow-circle-left"></i>
+                </a>
+            </span>
+            </div>
+
+            <div class="btn-header pull-right">
+                <span>
+                                            <a href="/exports/index" export-status=""
+                           data-original-title="Refresh monitoring configuration"
+                           data-placement="left" rel="tooltip" data-container="body">
+                            <i class="fa fa-retweet" ng-hide="exportRunning"></i>
+                            <i class="fa fa-refresh fa-spin txt-color-red" ng-show="exportRunning"></i>
+                        </a>
+                                    </span>
+            </div>
+            <server-time></server-time>
+            <version-check></version-check>
+            <push-notifications></push-notifications>
+
+            
+        </div>
+    </header><aside id="left-panel">
+    <div class="login-info">
+                <span>
+            <a data-html="true" data-original-title="Edit profile" data-placement="right"
+               rel="tooltip" href="/profile/edit">
+                <img class="online" alt="me" src="/img/fallback_user.png">
+                <span style="max-width: 142px;">
+                    View Er              </span>
+           </a>
+                            <span class="text-info pull-right" style="margin-top: 11px;">
+                    <i class="fa fa-lg fa-trophy"
+                       style="color:#FFD700; text-shadow: 0px 0px 9px rgba(255, 255, 0, 0.50)" id="userRootIcon"
+                       data-html="true" data-original-title="Administrator privileges"
+                       data-placement="right" rel="tooltip"></i>
+                </span>
+                    </span>
+    </div>
+    <nav
+            menu
+            phpplugin=""
+            phpcontroller="statusmaps"
+            phpaction="index">
+    </nav>
+    <span class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+</aside>
+<div id="uglyDropdownMenuHack"></div>
+<div id="main" role="main" ng-controller="LayoutController">
+    <div id="ribbon" class="hidden-mobile hidden-tablet">
+        <span class="ribbon-button-alignment"></span>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li>
+                <a href="/statusmaps" icon="fa fa-cube"><i class="fa fa-cube"></i> Statusmaps</a>            </li>
+        </ol>
+        
+        <div class="pull-right">
+            <span id="global_ajax_loader"><i class="fa fa-refresh fa-spin"></i> Loading data</span>
+        </div>
+
+    </div>
+
+    <div id="content" style="opacity: 1;">
+                                <div ng-controller="StatusmapsIndexController">
+            <div ui-view>
+                <div class="row">
+    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+        <h1 class="page-title txt-color-blueDark">
+            <i class="fa fa-globe fa-fw "></i>
+            Monitoring            <span>>
+                Status Map            </span>
+        </h1>
+    </div>
+</div>
+<div class="row padding-bottom-10">
+    <div class="col col-xs-12 no-padding">
+        <select
+                id="Instance"
+                data-placeholder="Filter by instance"
+                class="form-control"
+                chosen="{}"
+                ng-model="filter.Host.satellite_id"
+                ng-model-options="{debounce: 500}">
+            <option value="0">Mastersystem</option>        </select>
+    </div>
+</div>
+<div class="jarviswidget" id="wid-id-0">
+    <header>
+        <h2>
+            Status Map        </h2>
+
+        <div class="widget-toolbar" role="menu">
+            <a href="/statusmaps/index" class="btn btn-default btn-xs">
+                <i class="fa fa-undo"></i>
+                Reset            </a>
+        </div>
+
+        <div class="widget-toolbar">
+            <div class="pull-right padding-left-10">
+                <div class="form-group smart-form no-padding">
+                    <label class="checkbox small-checkbox-label">
+                        <input type="checkbox" name="checkbox" checked="checked"
+                               ng-model="filter.showAll"
+                               ng-model-options="{debounce: 500}"
+                               ng-true-value="false"
+                               ng-false-value="true">
+                        <i class="checkbox-primary"></i>
+                        Consider parent child relations                    </label>
+                </div>
+            </div>
+            <div class="pull-right padding-left-10">
+                <div class="form-group smart-form no-padding">
+                    <label class="input"> <i class="icon-prepend fa fa-filter"></i>
+                        <input type="text" class="input-sm"
+                               placeholder="Filter by IP address"
+                               ng-model="filter.Host.address"
+                               ng-model-options="{debounce: 500}">
+                    </label>
+                </div>
+            </div>
+            <div class="pull-right padding-left-10">
+                <div class="form-group smart-form no-padding">
+                    <label class="input"> <i class="icon-prepend fa fa-desktop"></i>
+                        <input type="text" class="input-sm"
+                               placeholder="Filter by host name"
+                               ng-model="filter.Host.name"
+                               ng-model-options="{debounce: 500}">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <div ng-if="isEmpty">
+        <center>
+            <span class="txt-color-red italic">No entries match the selection</span>
+        </center>
+    </div>
+    <div class="widget-body" id="statusmap">
+    </div>
+</div>
+<div id="statusmap-progress-icon">
+    <center>
+        <div>
+            Loading visualization for         </div>
+        <div>
+            {{nodesCount}}  nodes            <span class="statusmap-progress-dots"></span>
+        </div>
+    </center>
+    <div class="progress" data-progress="0">
+        <div class="progress_mask isFull">
+            <div class="progress_fill"></div>
+        </div>
+        <div class="progress_mask">
+            <div class="progress_fill"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="jarviswidget">
+    <header>
+        <h2>
+            <span class="no-padding">
+                    <i class="fa fa-check-circle no-padding up"></i>
+                    <em class="padding-right-10">
+                        Up                    </em>
+                    <i class="fa fa-exclamation-circle no-padding down"></i>
+                    <em class="padding-right-10">
+                        Down                    </em>
+                    <i class="fa fa-question-circle no-padding unreachable"></i>
+                    <em class="padding-right-10">
+                        Unreachable                    </em>
+                    <i class="fa fa-eye-slash no-padding text-primary"></i>
+                    <em class="padding-right-10">
+                        Not monitored                    </em>
+                    <i class="fa fa-plug no-padding text-primary"></i>
+                    <em class="padding-right-10">
+                        Disabled                    </em>
+                    |
+                     <i class="fa fa-power-off no-padding txt-color-blueDark"></i>
+                    <em class="padding-right-10">
+                        In downtime                    </em>
+                     <i class="fa fa-user no-padding txt-color-blueDark"></i>
+                    <em class="padding-right-10">
+                        Acknowledged                    </em>
+                    <i class="fa fa-user-md no-padding txt-color-blueDark"></i>
+                    <em class="padding-right-10">
+                        Acknowledged and in downtime                    </em>
+                </span>
+        </h2>
+    </header>
+</div>            </div>
+        </div>
+            </div>
+</div>
+
+<div id="scroll-top-container">
+    <i class="fa fa-arrow-up fa-2x" title="Scroll back to top"></i>
+</div>
+
+<script src="/smartadmin/js/app.js"></script><script>
+    $(document).ready(function(){
+        //pageSetUp();
+
+    });
+</script>
+</body>
+</html>

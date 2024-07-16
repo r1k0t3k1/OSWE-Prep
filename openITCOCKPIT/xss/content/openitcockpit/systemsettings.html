@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="openITCOCKPIT">
+<head>
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script data-pace-options='{ "ajax": false }' src='/smartadmin/js/plugin/pace/pace.min.js'></script>
+    <title>
+        Systemsettings - open source system monitoring    </title>
+    <link href="/favicon.ico?v3.7.2" type="image/x-icon" rel="icon"/><link href="/favicon.ico?v3.7.2" type="image/x-icon" rel="shortcut icon"/><script type="text/javascript" src="/frontend/js/lib/basics.js?v3.7.2"></script>
+<script type="text/javascript" src="/frontend/js/lib/jinheritance.js?v3.7.2"></script>
+<script type="text/javascript" src="/frontend/js/lib/jquery.min.js?v3.7.2"></script>
+<script type="text/javascript" src="/frontend/js/lib/publish_subscribe_broker.js?v3.7.2"></script>
+<script type="text/javascript" src="/frontend/js/lib/app.js?v3.7.2"></script>
+<script type="text/javascript" src="/frontend/js/lib/controller.js?v3.7.2"></script>
+<script type="text/javascript" src="/frontend/js/lib/component.js?v3.7.2"></script>
+<script type="text/javascript" src="/frontend/js/lib/router.js?v3.7.2"></script>
+<script type="text/javascript" src="/js/app/app_controller.js?v3.7.2"></script>
+<script type="text/javascript" src="/js/compressed_components.js?v3.7.2"></script>
+<script type="text/javascript" src="/js/compressed_controllers.js?v3.7.2"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+			var appData = {"jsonData":{"isAjax":false,"isMobile":false,"websocket_url":"wss:\/\/openitcockpit\/sudo_server","akey":"1fea123e07f730f76e661bced33a94152378611e"},"webroot":"https:\/\/openitcockpit\/","url":"","controller":"Systemsettings","action":"index","params":{"named":[],"pass":[],"plugin":null,"controller":"systemsettings","action":"index"},"Types":{"CODE_SUCCESS":"success","CODE_ERROR":"error","CODE_EXCEPTION":"exception","CODE_MISSING_PARAMETERS":"missing_parameters","CODE_NOT_AUTHENTICATED":"not_authenticated","CODE_AUTHENTICATION_FAILED":"authentication_failed","CODE_VALIDATION_FAILED":"validation_failed","CODE_NOT_ALLOWED":"not_allowed","CODE_NOT_AVAILABLE":"not_available","CODE_INVALID_TRIGGER_ACTION_ID":"invalid_trigger_action_id","ROLE_ADMIN":"admin","ROLE_EMPLOYEE":"employee"}};
+		
+//]]>
+</script><script type="text/javascript" src="/frontend/js/bootstrap.js?v3.7.2"></script>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery-jvectormap-1.2.2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery.imgareaselect-0.9.10/imgareaselect-animated.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lib/jquery.svg.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap/css/bootstrap.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/chosen/chosen.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/chosen/chosen-bootstrap.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/list_filter.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/fineuploader/fineuploader-3.2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/select2/select2.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/select2/select2-bootstrap.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap-datepicker.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/bootstrap-datetimepicker.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/gauge/css/gauge.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/font-awesome.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-production.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-production-plugins.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/smartadmin-skins.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/demo.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/your_style.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/css/animate.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lockscreen.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/base.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/app.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/status.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/lists.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/ansi.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/console.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/animate_new.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/prism.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/gridstack/gridstack.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/smartadmin/js/plugin/fullcalendar-2.3.1/fullcalendar.min.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/vis-4.21.0/dist/vis.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/my_vis.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/noty/noty.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/flippy.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/css/vendor/image-picker.css?v3.7.2"/>
+	<link rel="stylesheet" type="text/css" href="/vendor/angular-gridster/dist/angular-gridster.css?v3.7.2"/>
+
+	<script type="text/javascript" src="/js/lib/php.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/colr.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/ColorGenerator.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/GraphDefaults.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/app/bootstrap.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/app/layoutfix.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/jquery.blockUI.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/ui_blocker.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/dialog.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery.hotkeys.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jqconsole.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/bootstrap.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/chosen.jquery.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/moment-with-locales.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/fineuploader/jquery.fineuploader-3.2.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/select2.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/bootstrap-datepicker.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/bootstrap-datetimepicker.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/plugin/bootstrap-slider/bootstrap-slider.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/plugin/bootstrap-tags/bootstrap-tagsinput.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/notification/SmartNotification.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/demo.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/app.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/smartwidgets/jarvis.widget.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/sparkline/jquery.sparkline.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.cust.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.time.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/jquery-validate/jquery.validate.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.orderBar.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.fillbetween.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.pie.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.resize.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.navigate.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.threshold.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/flot/jquery.flot.selection.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/colorpicker/bootstrap-colorpicker.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/dropzone/dropzone.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/datatables/jquery.dataTables.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/datatables/dataTables.bootstrap.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/datatables/dataTables.colReorder.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/datatables/dataTables.colVis.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/datatables/dataTables.tableTools.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/datatables/fnPagingInfo.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/fullcalendar-2.3.1/fullcalendar.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/smartadmin/js/plugin/fuelux/wizard/wizard.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery-cookie.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery.nestable.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery-jvectormap-1.2.2.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/maps/jquery-jvectormap-world-mill-en.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery-ui-1.11.2.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/rangyinputs-jquery-1.1.2.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery.imgareaselect-0.9.10/scripts/jquery.imgareaselect.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery.svg.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/bootbox.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/jquery.svgfilter.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/jquery.qrcode.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/jquery.blockUI.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/prism.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/gauge/gauge.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/lodash/lodash.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/gridstack/dist/gridstack.min.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/lib/ChosenAjax.js?v3.7.2"></script>
+	<script type="text/javascript" src="/js/vendor/UUID.js-4.0.3/dist/uuid.core.js?v3.7.2"></script>
+
+    <!--[if lt IE 9]>
+    <script src="/js/vendor/html5shiv.js"></script>
+    <script src="/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+<script src="/vendor/angular/angular.min.js"></script><script src="/js/vendor/vis-4.21.0/dist/vis.js"></script><script src="/js/scripts/ng.app.js"></script><script src="/vendor/javascript-detect-element-resize/jquery.resize.js"></script><script src="/vendor/angular-gridster/dist/angular-gridster.min.js"></script><script src="/js/lib/angular-nestable.js"></script><script src="/js/compressed_angular_services.js"></script><script src="/js/compressed_angular_directives.js"></script><script src="/js/compressed_angular_controllers.js"></script></head>
+<body class="">
+
+<div id="global-loading">
+    <i class="fa fa-refresh fa-spin"></i>
+</div>
+
+<header id="header">
+    <div id="logo-group">
+        <span id="logo">
+            <div id="logo-image"></div>
+            <p id="logo-text">openITCOCKPIT</p>
+        </span>
+
+                    <system-health></system-health>
+            </div>
+
+
+            <div class="pull-right">
+            <div class="btn-header pull-right">
+            <span>
+                <a href="/login/logout" data-original-title="Sign out" data-placement="left"
+                   rel="tooltip" data-container="body">
+                    <i class="fa fa-sign-out"></i>
+                </a>
+            </span>
+            </div>
+
+            <div id="hide-menu" class="btn-header pull-right">
+            <span>
+                <a href="javascript:void(0);" data-original-title="Collapse menu"
+                   data-placement="left" rel="tooltip" data-container="body">
+                    <i class="fa fa-arrow-circle-left"></i>
+                </a>
+            </span>
+            </div>
+
+            <div class="btn-header pull-right">
+                <span>
+                                            <a href="/exports/index" export-status=""
+                           data-original-title="Refresh monitoring configuration"
+                           data-placement="left" rel="tooltip" data-container="body">
+                            <i class="fa fa-retweet" ng-hide="exportRunning"></i>
+                            <i class="fa fa-refresh fa-spin txt-color-red" ng-show="exportRunning"></i>
+                        </a>
+                                    </span>
+            </div>
+            <server-time></server-time>
+            <version-check></version-check>
+            <push-notifications></push-notifications>
+
+            
+        </div>
+    </header><aside id="left-panel">
+    <div class="login-info">
+                <span>
+            <a data-html="true" data-original-title="Edit profile" data-placement="right"
+               rel="tooltip" href="/profile/edit">
+                <img class="online" alt="me" src="/img/fallback_user.png">
+                <span style="max-width: 142px;">
+                    View Er              </span>
+           </a>
+                            <span class="text-info pull-right" style="margin-top: 11px;">
+                    <i class="fa fa-lg fa-trophy"
+                       style="color:#FFD700; text-shadow: 0px 0px 9px rgba(255, 255, 0, 0.50)" id="userRootIcon"
+                       data-html="true" data-original-title="Administrator privileges"
+                       data-placement="right" rel="tooltip"></i>
+                </span>
+                    </span>
+    </div>
+    <nav
+            menu
+            phpplugin=""
+            phpcontroller="systemsettings"
+            phpaction="index">
+    </nav>
+    <span class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+</aside>
+<div id="uglyDropdownMenuHack"></div>
+<div id="main" role="main" ng-controller="LayoutController">
+    <div id="ribbon" class="hidden-mobile hidden-tablet">
+        <span class="ribbon-button-alignment"></span>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/"><i class="fa fa-home"></i> Home</a>
+            </li>
+            <li>
+                <a href="/systemsettings" icon="fa fa-cube"><i class="fa fa-cube"></i> Systemsettings</a>            </li>
+        </ol>
+
+        
+        <div class="pull-right">
+            <span id="global_ajax_loader"><i class="fa fa-refresh fa-spin"></i> Loading data</span>
+        </div>
+
+    </div>
+
+    <div id="content" style="opacity: 1;">
+        <div class="controller Systemsettings_index">
+                                    <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <h1 class="page-title txt-color-blueDark">
+            <i class="fa fa-wrench fa-fw "></i>
+            System Settings        </h1>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="alert alert-danger fade in">
+            <button data-dismiss="alert" class="close">×</button>
+            <i class="fa fa-exclamation "></i>
+            <strong>Attention!</strong> Do not change values, where you don't know what you are doing!        </div>
+    </div>
+</div>
+
+<section id="widget-grid" class="">
+
+    <div class="row">
+
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-1" data-widget-editbutton="false">
+                <header>
+                    <span class="widget-icon hidden-mobile"> <i class="fa fa-wrench"></i> </span>
+                    <h2 class="hidden-mobile">System settings </h2>
+
+                </header>
+                <div>
+
+                    <div class="widget-body no-padding">
+                        <form action="/systemsettings" novalidate="novalidate" class="form-horizontal clear" id="SystemsettingIndexForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>                        <div class="mobile_table">
+                            <table id="host_list" class="table table-striped table-hover table-bordered smart-form"
+                                   style="">
+                                <thead>
+                                <tr>
+                                    <th>Key</th>
+                                    <th>Value</th>
+                                    <th class="text-center">Info</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                                                    <tr>
+                                        <td class="service_table_host_header text-primary" colspan="3">
+                                            <strong>SUDO_SERVER</strong></td>
+                                    <tr>
+                                                                            <tr>
+                                            <td>API_KEY</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="1"
+                                                               class="form-control"
+                                                               name="data[0][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="1fea123e07f730f76e661bced33a94152378611e"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[0][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="API key for the sudoserver socket API"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                                                <tr>
+                                        <td class="service_table_host_header text-primary" colspan="3">
+                                            <strong>WEBSERVER</strong></td>
+                                    <tr>
+                                                                            <tr>
+                                            <td>USER</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="2"
+                                                               class="form-control"
+                                                               name="data[1][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="www-data"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[1][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Username of the webserver"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>GROUP</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="3"
+                                                               class="form-control"
+                                                               name="data[2][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="www-data"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[2][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Usergroup of the webserver"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                                                <tr>
+                                        <td class="service_table_host_header text-primary" colspan="3">
+                                            <strong>MONITORING</strong></td>
+                                    <tr>
+                                                                            <tr>
+                                            <td>USER</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="4"
+                                                               class="form-control"
+                                                               name="data[3][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="nagios"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[3][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The user of your monitoring system"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>GROUP</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="5"
+                                                               class="form-control"
+                                                               name="data[4][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="nagios"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[4][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The group of your monitoring system"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>FROM_ADDRESS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="6"
+                                                               class="form-control"
+                                                               name="data[5][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="127.0.0.1"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[5][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Sender mail address for notifications"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>FROM_NAME</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="7"
+                                                               class="form-control"
+                                                               name="data[6][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="openITCOCKPIT Notification"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[6][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The name we should display in your mail client"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>MESSAGE_HEADER</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="8"
+                                                               class="form-control"
+                                                               name="data[7][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="**** openITCOCKPIT notification by it-novum GmbH ****"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[7][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The header in the plain text mail"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>ACK_RECEIVER_SERVER</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="9"
+                                                               class="form-control"
+                                                               name="data[8][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="imap.gmail.com:993/imap/ssl"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[8][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Email server to connect. Must be provided in following format: server.com:port/imap[/ssl]"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>ACK_RECEIVER_ADDRESS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="10"
+                                                               class="form-control"
+                                                               name="data[9][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="my_email@gmail.com"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[9][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Username for sender notification mail"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>ACK_RECEIVER_PASSWORD</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="11"
+                                                               class="form-control"
+                                                               name="data[10][Systemsetting][id]">
+                                                        <input type="password" id="SystemsettingValue"
+                                                                         value="my_password"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[10][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Password for sender notification mail"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>CMD</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="12"
+                                                               class="form-control"
+                                                               name="data[11][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="/opt/openitc/nagios/var/rw/nagios.cmd"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[11][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The command pipe for your monitoring system"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>HOST.INITSTATE</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="13"
+                                                               class="form-control"
+                                                               name="data[12][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[12][Systemsetting][value]"><option value="o" >Up</option><option value="d" >Down</option><option value="u" selected="selected">Unreachable</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Host initial state [o,d,u]"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>SERVICE.INITSTATE</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="14"
+                                                               class="form-control"
+                                                               name="data[13][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[13][Systemsetting][value]"><option value="o" >Ok</option><option value="w" >Warning</option><option value="c" >Critical</option><option value="u" selected="selected">Unknown</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Service initial state [o,w,u,c]"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>RESTART</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="15"
+                                                               class="form-control"
+                                                               name="data[14][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl restart nagios"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[14][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to reload your monitoring software"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>RELOAD</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="16"
+                                                               class="form-control"
+                                                               name="data[15][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl reload nagios"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[15][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to reload your monitoring software"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>STOP</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="17"
+                                                               class="form-control"
+                                                               name="data[16][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl stop nagios"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[16][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to stop your monitoring software"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>START</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="18"
+                                                               class="form-control"
+                                                               name="data[17][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl start nagios"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[17][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to start your monitoring software"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>STATUS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="19"
+                                                               class="form-control"
+                                                               name="data[18][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl status nagios"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[18][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to query the status of your monitoring software"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>CORECONFIG</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="20"
+                                                               class="form-control"
+                                                               name="data[19][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="/etc/openitcockpit/nagios.cfg"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[19][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Path to monitoring core configuration file"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>STATUS_DAT</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="21"
+                                                               class="form-control"
+                                                               name="data[20][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="/opt/openitc/nagios/var/status.dat"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[20][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Path to the status.dat of the monitoring system"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>FRESHNESS_THRESHOLD_ADDITION</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="22"
+                                                               class="form-control"
+                                                               name="data[21][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="300"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[21][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Value in seconds that get added to the service check interval for passive services, before the monitoring system will fire up the freshness check"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>AFTER_EXPORT</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="23"
+                                                               class="form-control"
+                                                               name="data[22][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="#echo 1"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[22][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="A command that get executed on each export (Notice: this command runs as root, so be careful)"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>SINGLE_INSTANCE_SYNC</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="24"
+                                                               class="form-control"
+                                                               name="data[23][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[23][Systemsetting][value]"><option value="0" selected="selected">False</option><option value="1" >True</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="If enabled, you can select which openITCOCKPIT instance you like to push the new configuration to. If disabled all instances will be synchronized"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>QUERY_HANDLER</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="25"
+                                                               class="form-control"
+                                                               name="data[24][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="/opt/openitc/nagios/var/rw/nagios.qh"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[24][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Path to the query handler of your monitoring engine"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>HOST_CHECK_ACTIVE_DEFAULT</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="26"
+                                                               class="form-control"
+                                                               name="data[25][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[25][Systemsetting][value]"><option value="0" >False</option><option value="1" selected="selected">True</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="If enabled, new host templates will have active_checks enabled by default"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>SERVICE_CHECK_ACTIVE_DEFAULT</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="27"
+                                                               class="form-control"
+                                                               name="data[26][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[26][Systemsetting][value]"><option value="0" >False</option><option value="1" selected="selected">True</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="If enabled, new service templates will have active_checks enabled by default"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                                                <tr>
+                                        <td class="service_table_host_header text-primary" colspan="3">
+                                            <strong>SYSTEM</strong></td>
+                                    <tr>
+                                                                            <tr>
+                                            <td>ADDRESS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="28"
+                                                               class="form-control"
+                                                               name="data[27][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="openitcockpit"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[27][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The IP address or FQDN of the system"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>ANONYMOUS_STATISTICS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="29"
+                                                               class="form-control"
+                                                               name="data[28][Systemsetting][id]">
+                                                        <input type="text"
+                                                                         value="Anonymous statistics are disabled"
+                                                                         class="form-control systemsetting-input"
+                                                                         disabled="disabled" readonly="readonly">
+                                                                                                                                                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Determines if you want to support the developers of openITCOCKPIT by providing anonymous statistical data or not."
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                                                <tr>
+                                        <td class="service_table_host_header text-primary" colspan="3">
+                                            <strong>FRONTEND</strong></td>
+                                    <tr>
+                                                                            <tr>
+                                            <td>SYSTEMNAME</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="30"
+                                                               class="form-control"
+                                                               name="data[29][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="openITCOCKPIT"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[29][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The name of your system"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>SHOW_EXPORT_RUNNING</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="31"
+                                                               class="form-control"
+                                                               name="data[30][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[30][Systemsetting][value]"><option value="yes" selected="selected">True</option><option value="no" >False</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Show if an export is running in headarea"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>MASTER_INSTANCE</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="32"
+                                                               class="form-control"
+                                                               name="data[31][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="Mastersystem"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[31][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The name of your openITCOCKPIT main instance"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>AUTH_METHOD</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="33"
+                                                               class="form-control"
+                                                               name="data[32][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[32][Systemsetting][value]"><option value="session" selected="selected">PHP session</option><option value="twofactor" >Two factor authentication (PHP session based)</option><option value="ldap" >PHP LDAP</option><option value="sso" >SSO</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The authentication method that shoud be used for login"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>LDAP.TYPE</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="34"
+                                                               class="form-control"
+                                                               name="data[33][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[33][Systemsetting][value]"><option value="adldap" selected="selected">Active Directory LDAP</option><option value="openldap" >OpenLDAP</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="LDAP server type"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>LDAP.ADDRESS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="35"
+                                                               class="form-control"
+                                                               name="data[34][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="192.168.1.10"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[34][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The address or hostname of your LDAP server"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>LDAP.PORT</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="36"
+                                                               class="form-control"
+                                                               name="data[35][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="389"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[35][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The port where your LDAP server is listen to. Notice: If you want to use TLS the default port 389 shoud work as well! (SSL default Port is 636)"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>LDAP.QUERY</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="37"
+                                                               class="form-control"
+                                                               name="data[36][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="(&amp;(objectClass=user)(samaccounttype=805306368)(objectCategory=person)(cn=*))"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[36][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Your Filter Query"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>LDAP.BASEDN</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="38"
+                                                               class="form-control"
+                                                               name="data[37][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="DC=example,DC=org"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[37][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Your BASEDN"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>LDAP.USERNAME</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="39"
+                                                               class="form-control"
+                                                               name="data[38][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="administrator"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[38][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The username that the system will use to connect to your LDAP server"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>LDAP.PASSWORD</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="40"
+                                                               class="form-control"
+                                                               name="data[39][Systemsetting][id]">
+                                                        <input type="password" id="SystemsettingValue"
+                                                                         value="Testing123!"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[39][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The password that the system will use to connect to your LDAP server"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>LDAP.SUFFIX</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="41"
+                                                               class="form-control"
+                                                               name="data[40][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="@example.org"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[40][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The Suffix of your domain"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>LDAP.USE_TLS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="42"
+                                                               class="form-control"
+                                                               name="data[41][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[41][Systemsetting][value]"><option value="0" >False</option><option value="1" selected="selected">True</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="If PHP should upgrade the security of a plain connection to a TLS encrypted connection"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>SSO.CLIENT_ID</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="43"
+                                                               class="form-control"
+                                                               name="data[42][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="my_client_id"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[42][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Client id generated in SSO Server"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>SSO.CLIENT_SECRET</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="44"
+                                                               class="form-control"
+                                                               name="data[43][Systemsetting][id]">
+                                                        <input type="password" id="SystemsettingValue"
+                                                                         value="some_client_password"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[43][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Client secret generated in SSO Server"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>SSO.AUTH_ENDPOINT</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="45"
+                                                               class="form-control"
+                                                               name="data[44][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="https://sso.server.com/authorization.oauth2"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[44][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Authorization endpoint of SSO Server"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>SSO.TOKEN_ENDPOINT</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="46"
+                                                               class="form-control"
+                                                               name="data[45][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="https://sso.server.com/token.oauth2"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[45][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Token endpoint of SSO Server"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>SSO.USER_ENDPOINT</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="47"
+                                                               class="form-control"
+                                                               name="data[46][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="https://sso.server.com/userinfo.oauth2"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[46][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="User info endpoint of SSO Server"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>SSO.NO_EMAIL_MESSAGE</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="48"
+                                                               class="form-control"
+                                                               name="data[47][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="Email address not found. Please contact your &lt;a href=&quot;mailto:admin@my.com&quot;&gt;administrator&lt;/a&gt;"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[47][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The error message that appears when provided E-mail address was not found in openITCOCKPIT"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>SSO.LOG_OFF_LINK</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="49"
+                                                               class="form-control"
+                                                               name="data[48][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="https://sso.server.com/sso/logoff"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[48][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="SSO Server log out link"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>CERT.DEFAULT_USER_EMAIL</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="50"
+                                                               class="form-control"
+                                                               name="data[49][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="default.user@email.de"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[49][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Default user E-mail address to be used if no E-mail address was found during the login with certificate"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>HIDDEN_USER_IN_CHANGELOG</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="51"
+                                                               class="form-control"
+                                                               name="data[50][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[50][Systemsetting][value]"><option value="0" selected="selected">False</option><option value="1" >True</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Hide the user name in the change log due to privacy reasons"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>PRESELECTED_DOWNTIME_OPTION</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="52"
+                                                               class="form-control"
+                                                               name="data[51][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[51][Systemsetting][value]"><option value="0" selected="selected">Individual host</option><option value="1" >Host including services</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Set preselected Host downtime options individual"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>DISABLE_LOGIN_ANIMATION</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="53"
+                                                               class="form-control"
+                                                               name="data[52][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[52][Systemsetting][value]"><option value="0" selected="selected">False</option><option value="1" >True</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Determine if you want to disable the animation in login screen."
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                                                <tr>
+                                        <td class="service_table_host_header text-primary" colspan="3">
+                                            <strong>CHECK_MK</strong></td>
+                                    <tr>
+                                                                            <tr>
+                                            <td>BIN</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="54"
+                                                               class="form-control"
+                                                               name="data[53][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="/opt/openitc/nagios/3rd/check_mk/bin/check_mk"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[53][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Path to check_mk binary"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>MATCH</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="55"
+                                                               class="form-control"
+                                                               name="data[54][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="(perl|dsmc|java|ksh|VBoxHeadless|php)"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[54][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="These are the services that should not be compressed by check_mk as regular expression"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>ETC</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="56"
+                                                               class="form-control"
+                                                               name="data[55][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="/opt/openitc/nagios/3rd/check_mk/etc/"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[55][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Path to Check_MK config files"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>VAR</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="57"
+                                                               class="form-control"
+                                                               name="data[56][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="/opt/openitc/nagios/3rd/check_mk/var/"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[56][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Path to Check_MK variable files"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>ACTIVE_CHECK</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="58"
+                                                               class="form-control"
+                                                               name="data[57][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="CHECK_MK_ACTIVE"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[57][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="The name of the check_mk active check service template"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                                                <tr>
+                                        <td class="service_table_host_header text-primary" colspan="3">
+                                            <strong>ARCHIVE</strong></td>
+                                    <tr>
+                                                                            <tr>
+                                            <td>AGE.SERVICECHECKS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="59"
+                                                               class="form-control"
+                                                               name="data[58][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[58][Systemsetting][value]"><option value="1" >1</option><option value="2" selected="selected">2</option><option value="3" >3</option><option value="4" >4</option><option value="5" >5</option><option value="6" >6</option><option value="7" >7</option><option value="8" >8</option><option value="9" >9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option><option value="13" >13</option><option value="14" >14</option><option value="15" >15</option><option value="16" >16</option><option value="17" >17</option><option value="18" >18</option><option value="19" >19</option><option value="20" >20</option><option value="21" >21</option><option value="22" >22</option><option value="23" >23</option><option value="24" >24</option><option value="25" >25</option><option value="26" >26</option><option value="27" >27</option><option value="28" >28</option><option value="29" >29</option><option value="30" >30</option><option value="31" >31</option><option value="32" >32</option><option value="33" >33</option><option value="34" >34</option><option value="35" >35</option><option value="36" >36</option><option value="37" >37</option><option value="38" >38</option><option value="39" >39</option><option value="40" >40</option><option value="41" >41</option><option value="42" >42</option><option value="43" >43</option><option value="44" >44</option><option value="45" >45</option><option value="46" >46</option><option value="47" >47</option><option value="48" >48</option><option value="49" >49</option><option value="50" >50</option><option value="51" >51</option><option value="52" >52</option><option value="53" >53</option><option value="54" >54</option><option value="55" >55</option><option value="56" >56</option><option value="57" >57</option><option value="58" >58</option><option value="59" >59</option><option value="60" >60</option><option value="61" >61</option><option value="62" >62</option><option value="63" >63</option><option value="64" >64</option><option value="65" >65</option><option value="66" >66</option><option value="67" >67</option><option value="68" >68</option><option value="69" >69</option><option value="70" >70</option><option value="71" >71</option><option value="72" >72</option><option value="73" >73</option><option value="74" >74</option><option value="75" >75</option><option value="76" >76</option><option value="77" >77</option><option value="78" >78</option><option value="79" >79</option><option value="80" >80</option><option value="81" >81</option><option value="82" >82</option><option value="83" >83</option><option value="84" >84</option><option value="85" >85</option><option value="86" >86</option><option value="87" >87</option><option value="88" >88</option><option value="89" >89</option><option value="90" >90</option><option value="91" >91</option><option value="92" >92</option><option value="93" >93</option><option value="94" >94</option><option value="95" >95</option><option value="96" >96</option><option value="97" >97</option><option value="98" >98</option><option value="99" >99</option><option value="100" >100</option><option value="101" >101</option><option value="102" >102</option><option value="103" >103</option><option value="104" >104</option><option value="105" >105</option><option value="106" >106</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Time in weeks how long service check results will be stored"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>AGE.HOSTCHECKS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="60"
+                                                               class="form-control"
+                                                               name="data[59][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[59][Systemsetting][value]"><option value="1" >1</option><option value="2" selected="selected">2</option><option value="3" >3</option><option value="4" >4</option><option value="5" >5</option><option value="6" >6</option><option value="7" >7</option><option value="8" >8</option><option value="9" >9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option><option value="13" >13</option><option value="14" >14</option><option value="15" >15</option><option value="16" >16</option><option value="17" >17</option><option value="18" >18</option><option value="19" >19</option><option value="20" >20</option><option value="21" >21</option><option value="22" >22</option><option value="23" >23</option><option value="24" >24</option><option value="25" >25</option><option value="26" >26</option><option value="27" >27</option><option value="28" >28</option><option value="29" >29</option><option value="30" >30</option><option value="31" >31</option><option value="32" >32</option><option value="33" >33</option><option value="34" >34</option><option value="35" >35</option><option value="36" >36</option><option value="37" >37</option><option value="38" >38</option><option value="39" >39</option><option value="40" >40</option><option value="41" >41</option><option value="42" >42</option><option value="43" >43</option><option value="44" >44</option><option value="45" >45</option><option value="46" >46</option><option value="47" >47</option><option value="48" >48</option><option value="49" >49</option><option value="50" >50</option><option value="51" >51</option><option value="52" >52</option><option value="53" >53</option><option value="54" >54</option><option value="55" >55</option><option value="56" >56</option><option value="57" >57</option><option value="58" >58</option><option value="59" >59</option><option value="60" >60</option><option value="61" >61</option><option value="62" >62</option><option value="63" >63</option><option value="64" >64</option><option value="65" >65</option><option value="66" >66</option><option value="67" >67</option><option value="68" >68</option><option value="69" >69</option><option value="70" >70</option><option value="71" >71</option><option value="72" >72</option><option value="73" >73</option><option value="74" >74</option><option value="75" >75</option><option value="76" >76</option><option value="77" >77</option><option value="78" >78</option><option value="79" >79</option><option value="80" >80</option><option value="81" >81</option><option value="82" >82</option><option value="83" >83</option><option value="84" >84</option><option value="85" >85</option><option value="86" >86</option><option value="87" >87</option><option value="88" >88</option><option value="89" >89</option><option value="90" >90</option><option value="91" >91</option><option value="92" >92</option><option value="93" >93</option><option value="94" >94</option><option value="95" >95</option><option value="96" >96</option><option value="97" >97</option><option value="98" >98</option><option value="99" >99</option><option value="100" >100</option><option value="101" >101</option><option value="102" >102</option><option value="103" >103</option><option value="104" >104</option><option value="105" >105</option><option value="106" >106</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Time in weeks how long host check results will be stored"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>AGE.STATEHISTORIES</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="61"
+                                                               class="form-control"
+                                                               name="data[60][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[60][Systemsetting][value]"><option value="1" >1</option><option value="2" >2</option><option value="3" >3</option><option value="4" >4</option><option value="5" >5</option><option value="6" >6</option><option value="7" >7</option><option value="8" >8</option><option value="9" >9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option><option value="13" >13</option><option value="14" >14</option><option value="15" >15</option><option value="16" >16</option><option value="17" >17</option><option value="18" >18</option><option value="19" >19</option><option value="20" >20</option><option value="21" >21</option><option value="22" >22</option><option value="23" >23</option><option value="24" >24</option><option value="25" >25</option><option value="26" >26</option><option value="27" >27</option><option value="28" >28</option><option value="29" >29</option><option value="30" >30</option><option value="31" >31</option><option value="32" >32</option><option value="33" >33</option><option value="34" >34</option><option value="35" >35</option><option value="36" >36</option><option value="37" >37</option><option value="38" >38</option><option value="39" >39</option><option value="40" >40</option><option value="41" >41</option><option value="42" >42</option><option value="43" >43</option><option value="44" >44</option><option value="45" >45</option><option value="46" >46</option><option value="47" >47</option><option value="48" >48</option><option value="49" >49</option><option value="50" >50</option><option value="51" >51</option><option value="52" >52</option><option value="53" selected="selected">53</option><option value="54" >54</option><option value="55" >55</option><option value="56" >56</option><option value="57" >57</option><option value="58" >58</option><option value="59" >59</option><option value="60" >60</option><option value="61" >61</option><option value="62" >62</option><option value="63" >63</option><option value="64" >64</option><option value="65" >65</option><option value="66" >66</option><option value="67" >67</option><option value="68" >68</option><option value="69" >69</option><option value="70" >70</option><option value="71" >71</option><option value="72" >72</option><option value="73" >73</option><option value="74" >74</option><option value="75" >75</option><option value="76" >76</option><option value="77" >77</option><option value="78" >78</option><option value="79" >79</option><option value="80" >80</option><option value="81" >81</option><option value="82" >82</option><option value="83" >83</option><option value="84" >84</option><option value="85" >85</option><option value="86" >86</option><option value="87" >87</option><option value="88" >88</option><option value="89" >89</option><option value="90" >90</option><option value="91" >91</option><option value="92" >92</option><option value="93" >93</option><option value="94" >94</option><option value="95" >95</option><option value="96" >96</option><option value="97" >97</option><option value="98" >98</option><option value="99" >99</option><option value="100" >100</option><option value="101" >101</option><option value="102" >102</option><option value="103" >103</option><option value="104" >104</option><option value="105" >105</option><option value="106" >106</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Time in weeks how long state change events will be stored"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>AGE.LOGENTRIES</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="62"
+                                                               class="form-control"
+                                                               name="data[61][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[61][Systemsetting][value]"><option value="1" >1</option><option value="2" selected="selected">2</option><option value="3" >3</option><option value="4" >4</option><option value="5" >5</option><option value="6" >6</option><option value="7" >7</option><option value="8" >8</option><option value="9" >9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option><option value="13" >13</option><option value="14" >14</option><option value="15" >15</option><option value="16" >16</option><option value="17" >17</option><option value="18" >18</option><option value="19" >19</option><option value="20" >20</option><option value="21" >21</option><option value="22" >22</option><option value="23" >23</option><option value="24" >24</option><option value="25" >25</option><option value="26" >26</option><option value="27" >27</option><option value="28" >28</option><option value="29" >29</option><option value="30" >30</option><option value="31" >31</option><option value="32" >32</option><option value="33" >33</option><option value="34" >34</option><option value="35" >35</option><option value="36" >36</option><option value="37" >37</option><option value="38" >38</option><option value="39" >39</option><option value="40" >40</option><option value="41" >41</option><option value="42" >42</option><option value="43" >43</option><option value="44" >44</option><option value="45" >45</option><option value="46" >46</option><option value="47" >47</option><option value="48" >48</option><option value="49" >49</option><option value="50" >50</option><option value="51" >51</option><option value="52" >52</option><option value="53" >53</option><option value="54" >54</option><option value="55" >55</option><option value="56" >56</option><option value="57" >57</option><option value="58" >58</option><option value="59" >59</option><option value="60" >60</option><option value="61" >61</option><option value="62" >62</option><option value="63" >63</option><option value="64" >64</option><option value="65" >65</option><option value="66" >66</option><option value="67" >67</option><option value="68" >68</option><option value="69" >69</option><option value="70" >70</option><option value="71" >71</option><option value="72" >72</option><option value="73" >73</option><option value="74" >74</option><option value="75" >75</option><option value="76" >76</option><option value="77" >77</option><option value="78" >78</option><option value="79" >79</option><option value="80" >80</option><option value="81" >81</option><option value="82" >82</option><option value="83" >83</option><option value="84" >84</option><option value="85" >85</option><option value="86" >86</option><option value="87" >87</option><option value="88" >88</option><option value="89" >89</option><option value="90" >90</option><option value="91" >91</option><option value="92" >92</option><option value="93" >93</option><option value="94" >94</option><option value="95" >95</option><option value="96" >96</option><option value="97" >97</option><option value="98" >98</option><option value="99" >99</option><option value="100" >100</option><option value="101" >101</option><option value="102" >102</option><option value="103" >103</option><option value="104" >104</option><option value="105" >105</option><option value="106" >106</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Time in weeks how long logentries will be stored"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>AGE.NOTIFICATIONS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="63"
+                                                               class="form-control"
+                                                               name="data[62][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[62][Systemsetting][value]"><option value="1" >1</option><option value="2" selected="selected">2</option><option value="3" >3</option><option value="4" >4</option><option value="5" >5</option><option value="6" >6</option><option value="7" >7</option><option value="8" >8</option><option value="9" >9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option><option value="13" >13</option><option value="14" >14</option><option value="15" >15</option><option value="16" >16</option><option value="17" >17</option><option value="18" >18</option><option value="19" >19</option><option value="20" >20</option><option value="21" >21</option><option value="22" >22</option><option value="23" >23</option><option value="24" >24</option><option value="25" >25</option><option value="26" >26</option><option value="27" >27</option><option value="28" >28</option><option value="29" >29</option><option value="30" >30</option><option value="31" >31</option><option value="32" >32</option><option value="33" >33</option><option value="34" >34</option><option value="35" >35</option><option value="36" >36</option><option value="37" >37</option><option value="38" >38</option><option value="39" >39</option><option value="40" >40</option><option value="41" >41</option><option value="42" >42</option><option value="43" >43</option><option value="44" >44</option><option value="45" >45</option><option value="46" >46</option><option value="47" >47</option><option value="48" >48</option><option value="49" >49</option><option value="50" >50</option><option value="51" >51</option><option value="52" >52</option><option value="53" >53</option><option value="54" >54</option><option value="55" >55</option><option value="56" >56</option><option value="57" >57</option><option value="58" >58</option><option value="59" >59</option><option value="60" >60</option><option value="61" >61</option><option value="62" >62</option><option value="63" >63</option><option value="64" >64</option><option value="65" >65</option><option value="66" >66</option><option value="67" >67</option><option value="68" >68</option><option value="69" >69</option><option value="70" >70</option><option value="71" >71</option><option value="72" >72</option><option value="73" >73</option><option value="74" >74</option><option value="75" >75</option><option value="76" >76</option><option value="77" >77</option><option value="78" >78</option><option value="79" >79</option><option value="80" >80</option><option value="81" >81</option><option value="82" >82</option><option value="83" >83</option><option value="84" >84</option><option value="85" >85</option><option value="86" >86</option><option value="87" >87</option><option value="88" >88</option><option value="89" >89</option><option value="90" >90</option><option value="91" >91</option><option value="92" >92</option><option value="93" >93</option><option value="94" >94</option><option value="95" >95</option><option value="96" >96</option><option value="97" >97</option><option value="98" >98</option><option value="99" >99</option><option value="100" >100</option><option value="101" >101</option><option value="102" >102</option><option value="103" >103</option><option value="104" >104</option><option value="105" >105</option><option value="106" >106</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Time in weeks how long notifications will be stored (keep eq to CONTACTNOTIFICATIONS AND CONTACTNOTIFICATIONMETHODS)"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>AGE.CONTACTNOTIFICATIONS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="64"
+                                                               class="form-control"
+                                                               name="data[63][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[63][Systemsetting][value]"><option value="1" >1</option><option value="2" selected="selected">2</option><option value="3" >3</option><option value="4" >4</option><option value="5" >5</option><option value="6" >6</option><option value="7" >7</option><option value="8" >8</option><option value="9" >9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option><option value="13" >13</option><option value="14" >14</option><option value="15" >15</option><option value="16" >16</option><option value="17" >17</option><option value="18" >18</option><option value="19" >19</option><option value="20" >20</option><option value="21" >21</option><option value="22" >22</option><option value="23" >23</option><option value="24" >24</option><option value="25" >25</option><option value="26" >26</option><option value="27" >27</option><option value="28" >28</option><option value="29" >29</option><option value="30" >30</option><option value="31" >31</option><option value="32" >32</option><option value="33" >33</option><option value="34" >34</option><option value="35" >35</option><option value="36" >36</option><option value="37" >37</option><option value="38" >38</option><option value="39" >39</option><option value="40" >40</option><option value="41" >41</option><option value="42" >42</option><option value="43" >43</option><option value="44" >44</option><option value="45" >45</option><option value="46" >46</option><option value="47" >47</option><option value="48" >48</option><option value="49" >49</option><option value="50" >50</option><option value="51" >51</option><option value="52" >52</option><option value="53" >53</option><option value="54" >54</option><option value="55" >55</option><option value="56" >56</option><option value="57" >57</option><option value="58" >58</option><option value="59" >59</option><option value="60" >60</option><option value="61" >61</option><option value="62" >62</option><option value="63" >63</option><option value="64" >64</option><option value="65" >65</option><option value="66" >66</option><option value="67" >67</option><option value="68" >68</option><option value="69" >69</option><option value="70" >70</option><option value="71" >71</option><option value="72" >72</option><option value="73" >73</option><option value="74" >74</option><option value="75" >75</option><option value="76" >76</option><option value="77" >77</option><option value="78" >78</option><option value="79" >79</option><option value="80" >80</option><option value="81" >81</option><option value="82" >82</option><option value="83" >83</option><option value="84" >84</option><option value="85" >85</option><option value="86" >86</option><option value="87" >87</option><option value="88" >88</option><option value="89" >89</option><option value="90" >90</option><option value="91" >91</option><option value="92" >92</option><option value="93" >93</option><option value="94" >94</option><option value="95" >95</option><option value="96" >96</option><option value="97" >97</option><option value="98" >98</option><option value="99" >99</option><option value="100" >100</option><option value="101" >101</option><option value="102" >102</option><option value="103" >103</option><option value="104" >104</option><option value="105" >105</option><option value="106" >106</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Time in weeks how long contactnotifications will be stored (keep eq to NOTIFICATIONS AND CONTACTNOTIFICATIONMETHODS)"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>AGE.CONTACTNOTIFICATIONMETHODS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="65"
+                                                               class="form-control"
+                                                               name="data[64][Systemsetting][id]">
+                                                        <select class="form-control systemsetting-input" name="data[64][Systemsetting][value]"><option value="1" >1</option><option value="2" selected="selected">2</option><option value="3" >3</option><option value="4" >4</option><option value="5" >5</option><option value="6" >6</option><option value="7" >7</option><option value="8" >8</option><option value="9" >9</option><option value="10" >10</option><option value="11" >11</option><option value="12" >12</option><option value="13" >13</option><option value="14" >14</option><option value="15" >15</option><option value="16" >16</option><option value="17" >17</option><option value="18" >18</option><option value="19" >19</option><option value="20" >20</option><option value="21" >21</option><option value="22" >22</option><option value="23" >23</option><option value="24" >24</option><option value="25" >25</option><option value="26" >26</option><option value="27" >27</option><option value="28" >28</option><option value="29" >29</option><option value="30" >30</option><option value="31" >31</option><option value="32" >32</option><option value="33" >33</option><option value="34" >34</option><option value="35" >35</option><option value="36" >36</option><option value="37" >37</option><option value="38" >38</option><option value="39" >39</option><option value="40" >40</option><option value="41" >41</option><option value="42" >42</option><option value="43" >43</option><option value="44" >44</option><option value="45" >45</option><option value="46" >46</option><option value="47" >47</option><option value="48" >48</option><option value="49" >49</option><option value="50" >50</option><option value="51" >51</option><option value="52" >52</option><option value="53" >53</option><option value="54" >54</option><option value="55" >55</option><option value="56" >56</option><option value="57" >57</option><option value="58" >58</option><option value="59" >59</option><option value="60" >60</option><option value="61" >61</option><option value="62" >62</option><option value="63" >63</option><option value="64" >64</option><option value="65" >65</option><option value="66" >66</option><option value="67" >67</option><option value="68" >68</option><option value="69" >69</option><option value="70" >70</option><option value="71" >71</option><option value="72" >72</option><option value="73" >73</option><option value="74" >74</option><option value="75" >75</option><option value="76" >76</option><option value="77" >77</option><option value="78" >78</option><option value="79" >79</option><option value="80" >80</option><option value="81" >81</option><option value="82" >82</option><option value="83" >83</option><option value="84" >84</option><option value="85" >85</option><option value="86" >86</option><option value="87" >87</option><option value="88" >88</option><option value="89" >89</option><option value="90" >90</option><option value="91" >91</option><option value="92" >92</option><option value="93" >93</option><option value="94" >94</option><option value="95" >95</option><option value="96" >96</option><option value="97" >97</option><option value="98" >98</option><option value="99" >99</option><option value="100" >100</option><option value="101" >101</option><option value="102" >102</option><option value="103" >103</option><option value="104" >104</option><option value="105" >105</option><option value="106" >106</option></select>                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Time in weeks how long contactnotificationmethods will be stored (keep eq to NOTIFICATIONS AND CONTACTNOTIFICATIONS)"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                                                <tr>
+                                        <td class="service_table_host_header text-primary" colspan="3">
+                                            <strong>INIT</strong></td>
+                                    <tr>
+                                                                            <tr>
+                                            <td>SUDO_SERVER_STATUS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="66"
+                                                               class="form-control"
+                                                               name="data[65][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl status sudo_server"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[65][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to query the status of your sudo_server"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>GEARMAN_WORKER_STATUS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="67"
+                                                               class="form-control"
+                                                               name="data[66][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl status gearman_worker"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[66][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to query the status of gearman_worker"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>OITC_CMD_STATUS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="68"
+                                                               class="form-control"
+                                                               name="data[67][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl status oitc_cmd"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[67][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to query the status of your oitc_cmd"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>NPCD_STATUS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="69"
+                                                               class="form-control"
+                                                               name="data[68][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl status npcd"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[68][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to query the status of your NPCD"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>NDO_STATUS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="70"
+                                                               class="form-control"
+                                                               name="data[69][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl status ndoutils"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[69][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to query the status of your NDOUtils"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>STATUSENIGNE_STATUS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="71"
+                                                               class="form-control"
+                                                               name="data[70][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl status statusengine"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[70][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to query the status of your statusengine"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>GEARMAN_JOB_SERVER_STATUS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="72"
+                                                               class="form-control"
+                                                               name="data[71][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl status gearman-job-server"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[71][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to query the status of  gearman-job-server"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>PHPNSTA_STATUS</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="73"
+                                                               class="form-control"
+                                                               name="data[72][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl status phpnsta"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[72][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to query the status of  phpNSTA"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>PUSH_NOTIFICATION</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="74"
+                                                               class="form-control"
+                                                               name="data[73][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl status push_notification"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[73][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to query the status of  push_notification service"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>NODEJS_SERVER</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="75"
+                                                               class="form-control"
+                                                               name="data[74][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl status nodejs_server"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[74][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to query the status of openITCOCKPITs NodeJS Server backend"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>GEARMAN_WORKER_RESTART</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="76"
+                                                               class="form-control"
+                                                               name="data[75][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl restart gearman_worker"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[75][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to restart gearman_worker service"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>OITC_GRAPHING_RESTART</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="77"
+                                                               class="form-control"
+                                                               name="data[76][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl restart openitcockpit-graphing"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[76][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to restart openitcockpit-graphing service"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>PHPNSTA_RESTART</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="78"
+                                                               class="form-control"
+                                                               name="data[77][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl restart phpnsta"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[77][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to restart phpNSTA service"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                    <tr>
+                                            <td>STATUSENGINE_RESTART</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="79"
+                                                               class="form-control"
+                                                               name="data[78][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value="systemctl restart statusengine"
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[78][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Command to restartstatusengine service"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                                                <tr>
+                                        <td class="service_table_host_header text-primary" colspan="3">
+                                            <strong>TICKET_SYSTEM</strong></td>
+                                    <tr>
+                                                                            <tr>
+                                            <td>URL</td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <div class="col col-xs-12">
+                                                        <input type="hidden" id="SystemsettingId"
+                                                               value="80"
+                                                               class="form-control"
+                                                               name="data[79][Systemsetting][id]">
+                                                        <input type="text" id="SystemsettingValue"
+                                                                         value=""
+                                                                         class="form-control systemsetting-input"
+                                                                         name="data[79][Systemsetting][value]">                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center"><a href="javascript:void(0);"
+                                                                       data-original-title="Link to the ticket system"
+                                                                       data-placement="left" rel="tooltip"
+                                                                       data-container="body"><i
+                                                            class="padding-top-5 fa fa-info-circle fa-2x"></i></a></td>
+                                        </tr>
+                                                                                                                                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="well formactions "><div class="pull-right"><input class="btn btn-primary" type="submit" value="Save"/>&nbsp;<a href="/systemsettings" class="btn btn-default">Cancel</a></div></div></form>                </div>
+            </div>
+    </div>
+</section>
+                    </div>
+    </div>
+</div>
+<div id="scroll-top-container">
+    <i class="fa fa-arrow-up fa-2x" title="Scroll back to top"></i>
+</div>
+</body>
+</html>
