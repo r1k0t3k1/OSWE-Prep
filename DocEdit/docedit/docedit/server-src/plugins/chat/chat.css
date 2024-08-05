@@ -1,0 +1,59 @@
+#messages {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#messages li{
+	display:inline-block;
+	clear: both;
+	padding: 20px;
+	border-radius: 30px;
+	margin-bottom: 2px;
+	font-family: Helvetica, Arial, sans-serif;
+	float: right;
+	background: #0084ff;
+	color: #fff;
+}
+#messages li + li{
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+#messages li:last-of-type{
+	border-bottom-right-radius: 30px;
+}
+#open-button {
+	background-color: #555;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	opacity: 0.8;
+	position: fixed;
+	bottom: 23px;
+	right: 28px;
+	width: 280px;
+	z-index: 998;
+  }
+  
+  /* The popup chat - hidden by default */
+  .chat-popup {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	right: 15px;
+	border: 3px solid #f1f1f1;
+	z-index: 999;
+	width: 300px;
+	background-color: white;
+	padding: 10px;
+  }
+
+  #msgBox {
+	height: 300px;
+	overflow: auto;
+  }
+
+  .inputMessage {
+	width: 100%;
+	border: none;
+  }

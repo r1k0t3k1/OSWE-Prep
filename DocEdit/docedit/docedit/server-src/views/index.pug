@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  if homePage
+    div !{homePage}
+  else
+    include ./items/home_el.pug 

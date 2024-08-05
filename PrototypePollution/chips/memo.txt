@@ -1,0 +1,5 @@
+package.jsonのscriptsコマンドからアプリケーションのエントリポイントを確認
+./bin/www
+
+./bin/www内でapp(.js)がrequireされている
+

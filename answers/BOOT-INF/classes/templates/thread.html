@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>A N S W E R S</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../../css/main.css" />
+</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header" th:replace="fragments/header :: header"></header>
+
+			<!-- Menu -->
+			<section id="menu" th:replace="fragments/menu :: menu"></section>
+
+			<!-- Main -->
+			<div id="main">
+				<article class="post">
+					<header>
+						<div class="title">
+							<h2 th:text="${question.title}"></h2>
+						</div>
+						<div class="meta">
+							<a th:href="@{|/profile/${question.ownerId}|}" class="author"><span class="name" th:text="${question.ownerName}">Jane Doe</span><img src="../images/avatar.jpg" alt="" /></a>
+							<time class="published" th:text="${question.friendlyDate}" >November 1, 2015</time>
+						</div>
+					</header>
+					<p th:utext="${question.description}">My internet isn't working. Wha happened?</p>
+					<footer>
+						<ul class="stats">
+							<li><div th:text="${question.categoryName}">General</div></li>
+							<li><div class="icon solid fa-heart">42</div></li>
+							<li><div class="icon solid fa-comment" th:text="${question.answerCount}">42</div></li>
+						</ul>
+					</footer>
+				</article>
+				<th:block th:each="answer : ${answers}">
+					<article class="post">
+						<header>
+							<div>
+								&nbsp;<span class="name" th:text="${answer.ownerName}">Jane Doe</span>&nbsp;|&nbsp;<time class="published" th:text="${answer.friendlyDate}" >November 1, 2015</time>
+							</div>
+						</header>
+						<p th:utext="${answer.description}">My internet isn't working. Wha happened?</p>
+						<footer>
+						</footer>
+					</article>
+				</th:block>
+				<th:block th:if="${username != null}">
+					<article class="post">
+						<h3>Post an answer</h3>
+						<div>Allowed HTML elements are &lt;em&gt;, &lt;strong&gt;, and &lt;code&gt;</div>
+						<form th:action="@{|/question/${question.id}/answer|}" method="post">
+							<label for="answer">Answer:</label>
+							<input type="text" id="answer" name="answer" /><br/><br/>
+							<input type="submit" value="Submit" />
+						</form>
+					</article>
+				</th:block>
+			</div>
+
+			<!-- Sidebar -->
+			<section id="sidebar">
+
+				<!-- Intro -->
+				<section id="intro" th:replace="fragments/sidebar :: intro"></section>
+				
+				<!-- Posts List -->
+				<section th:replace="fragments/sidebar :: posts"></section>
+ 
+				<!-- About -->
+				<section class="blurb" th:replace="fragments/sidebar :: blurb"></section>
+
+				<!-- Footer -->
+				<section id="footer" th:replace="fragments/footer :: footer"></section>
+
+			</section>
+
+		</div>
+
+
+		<!-- Scripts -->
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/browser.min.js"></script>
+		<script src="../../js/breakpoints.min.js"></script>
+		<script src="../../js/util.js"></script>
+		<script src="../../js/main.js"></script>
+	</body>
+</html>

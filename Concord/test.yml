@@ -1,0 +1,9 @@
+configuration:
+  runtime: concord-v2
+  arguments:
+    name: ${crypto.decryptString("vyblrnt+hP8GNVOfSl9WXgGcQZceBhOmcyhQ0alyX6Rs5ozQbEvChU9K7FWSe7cf")}
+
+flows:
+  default:
+  - log: "plaintext: ${name}"
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>A N S W E R S</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../../css/main.css" />
+</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header" th:replace="fragments/header :: header"></header>
+
+			<!-- Menu -->
+			<section id="menu" th:replace="fragments/menu :: menu"></section>
+
+			<!-- Main -->
+			<div id="main">
+				<article class="post">
+					<header>
+						<div class="title">
+							<h2>Query Data</h2>
+						</div>
+						<div class="meta">
+							!Use with caution!
+						</div>
+					</header>
+					<div>
+						<div th:if="${message != null}">
+							<p th:text="${message}"></p>
+						</div>
+						<form action="/admin/query" method="post">
+							<label for="adminKey">Admin Key:</label>
+							<input type="text" id="adminKey" name="adminKey" required/><br/><br/>
+							<label for="query">SQL Query:</label>
+							<textarea id="query" name="query" rows="4" cols="64" required></textarea><br/><br/>
+							<input type="submit" value="Submit" />
+						</form>
+						<div th:if="${results != null}">
+							<pre th:text="${results}"></pre>
+						</div>
+					</div>
+				</article>
+
+				<!-- Footer -->
+				<section id="footer" th:replace="fragments/footer :: footer"></section>
+
+			</div>
+					
+		</div>
+
+		<!-- Scripts -->
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/browser.min.js"></script>
+		<script src="../../js/breakpoints.min.js"></script>
+		<script src="../../js/util.js"></script>
+		<script src="../../js/main.js"></script>
+	</body>
+</html>

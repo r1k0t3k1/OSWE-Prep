@@ -1,0 +1,11 @@
+h1= title
+form(action="/login" method="post")#loginForm
+  .form-group
+    label(for='Email') Email address
+    input#email.form-control(type='email' name='email' aria-describedby='emailHelp' placeholder='Enter email')
+  .form-group
+    label(for='password') Password
+    input#password.form-control(type='password' name='password' placeholder='Password')
+  .btn-group(role="group")
+    button.btn.btn-primary(type='submit') Login
+    a.btn.btn-info(href=settings.with_ws ? "/#!/register" : "/register"  role="button") Register

@@ -1,0 +1,22 @@
+h1= title
+form(action="/server" method="post")#settingsForm
+  .form-group
+    label(for='homePage') Home Page
+    textarea.form-control#homePage(name='homePage' rows="20")= homeContent
+  .form-group
+  button.btn.btn-info.float-right(type='submit' role="button") Update
+  br
+h2 Settings
+.card.my-3
+  .card-body
+    h5.card-title WebSockets
+    p.card-text Enable or disable the use of WebSockets (Configurable in application_settings.json)
+    input.float-right#wsToggle(type="checkbox" checked=(appSettings.ws.enabled ? "true" : undefined) data-toggle="toggle" disabled data-size="sm")
+if plugins
+  h2 Plugins
+  each plugin in plugins
+    .card.my-3
+      .card-body
+        h5.card-title= plugin.title
+        p.card-text= plugin.description
+        input.float-right#pluginToggle.pluginToggle(type="checkbox" checked=(plugin.enabled ? "true" : undefined) data-toggle="toggle" data-plugin= plugin.dataValues.fileName data-size="sm" )

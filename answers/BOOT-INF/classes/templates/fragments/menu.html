@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>A N S W E R S</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../../css/main.css" />
+</head>
+<body>
+	<section id="menu" th:fragment="menu">
+
+		<!-- Search -->
+		<section>
+			<form class="search" method="get" action="/search">
+				<input type="text" name="query" placeholder="Search" />
+			</form>
+		</section>
+
+		<!-- Links -->
+		<th:block th:if="${isAdmin == true || isMod == true}">
+			<section>
+				<ul class="links">
+					<li th:if="${isAdmin == true || isMod == true}">
+						<a href="/moderate">
+							<h3>Moderation</h3>
+							<p>View questions require moderation</p>
+						</a>
+					</li>
+					<li th:if="${isAdmin == true}">
+						<a href="/admin/users">
+							<h3>User Management</h3>
+							<p>Manage Users</p>
+						</a>
+					</li>
+					<li th:if="${isAdmin == true}">
+						<a href="/admin/export">
+							<h3>Data Export</h3>
+							<p>Export data</p>
+						</a>
+					</li>
+					<li th:if="${isAdmin == true}">
+						<a href="/admin/query">
+							<h3>Data Query</h3>
+							<p>Query data</p>
+						</a>
+					</li>
+					<li th:if="${isAdmin == true}">
+						<a href="/admin/import">
+							<h3>Data Import</h3>
+							<p>Import data</p>
+						</a>
+					</li>
+				</ul>
+			</section>
+		</th:block>
+
+		<!-- Actions -->
+		<section>
+			<ul class="actions stacked">
+				<li th:if="${username != null}"><a href="/user/changePassword" class="button large fit">Change Password</a>
+				<li th:if="${username != null}"><a href="/logout" class="button large fit">Logout</a></li>
+				<li th:if="${username == null}"><a href="/login" class="button large fit">Log In</a></li>
+			</ul>
+		</section>
+
+	</section>
+</body>
+</html>

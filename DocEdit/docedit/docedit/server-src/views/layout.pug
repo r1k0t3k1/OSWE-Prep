@@ -1,0 +1,29 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    title Simple Sidebar - Start Bootstrap Template
+    link(href='/css/style.css', rel='stylesheet')
+    link(rel='favicon', sizes='64x64', href='/favicon.png', type="image/png" )
+  body
+    if plugin
+      each html in plugin.html
+        #plugin !{html}
+      each css in plugin.css
+        style !{css}
+      each js in plugin.js
+        script function loadPlugins(socket, $) {!{js}}
+    #wrapper.d-flex(class=user ? 'toggled' : '')
+      div(aria-live='polite', aria-atomic='true', style='position: relative; min-height: 200px;').notifications
+        div(style='position: absolute; top: 0; right: 0;')
+      // Sidebar
+      #fullpage-wrapper.bg-light
+        include ./sidebar.pug
+      #page-content-wrapper.bg-dark
+        include ./navbar.pug
+        .container-fluid.height-90.overflow-auto
+          .row.justify-content-center.align-items-center.height-100
+            .col-8.bg-light#view.my-3
+              block content
+      script(src='/js/app.js')

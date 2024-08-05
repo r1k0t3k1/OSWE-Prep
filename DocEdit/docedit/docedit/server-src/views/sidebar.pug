@@ -1,0 +1,8 @@
+#sidebar-wrapper.bg-light.border-right
+  img#sidebar-logo(src="/img/logo.png")
+  .sidebar-heading Documents
+  .list-group.list-group-flush
+    a.list-group-item.list-group-item-action.bg-light(href=settings.with_ws ?  '/#!/d' : '/d')#newDocument_link New Document
+    if docs
+      each doc in docs
+        a.list-group-item.list-group-item-action.bg-light#doc_link(href=settings.with_ws ?  '/#!/d/' + doc.id : '/d/' + doc.id)= doc.title

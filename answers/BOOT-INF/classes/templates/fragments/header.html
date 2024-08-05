@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>A N S W E R S</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../../css/main.css" />
+</head>
+<body>
+	<header id="header" th:fragment="header">
+		<h1><a href="/">Answers</a></h1>
+		<nav class="links" th:if="${categories != null}">
+			<ul>
+				<li th:each="cat: ${categories}" th:text="${cat.name}">
+			</ul>
+		</nav>
+		<h1 style="float:right; padding-right:8px;" th:if="${username != null}" th:text="@{|Welcome ${username}|}"></h1>
+		<nav class="main">
+			<ul>
+				<li class="search">
+					<a class="fa-search" href="#search">Search</a>
+					<form id="search" method="get" action="/search">
+						<input type="text" name="query" placeholder="Search" />
+					</form>
+				</li>
+				<li class="menu">
+					<a class="fa-bars" href="#menu">Menu</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+</body>
+</html>

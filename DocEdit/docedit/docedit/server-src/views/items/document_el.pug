@@ -1,0 +1,27 @@
+form(action="/d" method="post")#loginForm
+  input#title.form-control(name='title' autocomplete="off" type='text' placeholder='Document Title' value=doc ? doc.title : '').bg-light
+  br
+  textarea#working-document(name='content' autocomplete="off")= doc ? doc.content : ''
+  if doc
+    input#id.form-control(name='id' type='hidden' autocomplete="off" value=doc.id).bg-light
+
+  button.btn.btn-info.btn-space(type='submit' role="button") Save
+  if doc
+    a.btn.btn-danger.btn-space(href=settings.with_ws ? "/#!/d/delete/" + doc.id : "/d/delete/" + doc.id  role="button") Delete
+
+    if doc.Users
+      - var html = "<ul class='list-group list-group-flush'>";
+
+      each user in doc.Users
+        - html = html + "<li class='list-group-item'>" + user.email + "</li>";
+
+      - html = html + "</ul>"
+      - html = html + "<form id='docTag_form' action='/d/tag/" + doc.id + "' method='POST'><div class='input-group mb-3'>"
+      - html = html + '<input type="text" id="email_tag" name="email" class="form-control" placeholder="User\'s Email" aria-label="User\'s Email">'
+      - html = html + '<input type="hidden" name="docid" value="' + doc.id + '">'
+      - html = html + '<div class="input-group-append">'
+      - html = html + '<button class="btn btn-outline-secondary" type="submit"><i class="fa fa-plus"></i></button>'
+      - html = html + '</div></div></form>'
+      
+    button#tagPopover.btn.btn-dark(type="button" data-toggle="popover" title="Users <a href='#' id='tagPopover_close' class='float-right'>&times;</a>" data-html="true" data-sanitize="false" data-content=html) Tag 
+      span.badge.badge-light= doc.Users.length

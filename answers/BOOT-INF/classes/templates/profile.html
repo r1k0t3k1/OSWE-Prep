@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>A N S W E R S</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../../css/main.css" />
+</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header" th:replace="fragments/header :: header"></header>
+
+			<!-- Menu -->
+			<section id="menu" th:replace="fragments/menu :: menu"></section>
+
+			<!-- Main -->
+			<div id="main">
+				<article class="post">
+					<header>
+						<div class="title">
+							<h2 th:text="${user.username}">Profile</h2>
+						</div>
+						<div class="meta">
+							<div th:if="${user.admin == true}">Administrator</div>
+							<div th:if="${user.mod == true}">Moderator</div>
+						</div>
+					</header>
+					<ul class="stats">
+						<li><div th:text="@{|Questions Asked: ${questionCount}|}">0</div></li>
+						<li><div th:text="@{|Answers Submitted: ${answerCount}|}">0</div></li>
+					</ul>
+		
+					<footer>
+		
+					</footer>
+				</article>
+			</div>
+
+			<!-- Sidebar -->
+			<section id="sidebar">
+
+				<!-- Intro -->
+				<section id="intro" th:replace="fragments/sidebar :: intro"></section>
+
+				<!-- Posts List -->
+				<section th:replace="fragments/sidebar :: posts"></section>
+
+				<!-- About -->
+				<section class="blurb" th:replace="fragments/sidebar :: blurb"></section>	
+
+				<!-- Footer -->
+				<section id="footer"  th:replace="fragments/footer :: footer"></section>
+
+			</section>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/browser.min.js"></script>
+		<script src="../../js/breakpoints.min.js"></script>
+		<script src="../../js/util.js"></script>
+		<script src="../../js/main.js"></script>
+	</body>
+</html>

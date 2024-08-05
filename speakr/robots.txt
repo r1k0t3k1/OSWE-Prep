@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /api/login
+Disallow: /api/register/
+Disallow: /api/compose
+Disallow: /api/draft
+Disallow: /api/profile/update
+Disallow: /api/profile/upload
+Disallow: /api/profile/preview/*
+Disallow: /api/profile/approve/*
+Disallow: /api/profile/password
+Disallow: /api/avatars/*
+Allow: /api/sqeaks
+Allow: /feed
